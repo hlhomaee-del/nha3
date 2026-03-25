@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CCMA Bilingual Success Lab — Segment 4</title>
+<style>
+:root{
+  --cream:#FFF9F2;
+  --gold:#E8A020;--gold-light:#FEF3D0;--gold-dark:#B87800;
+  --teal:#0B8C8C;--teal-light:#C8EEEE;--teal-dark:#076060;
+  --rose:#D94060;--rose-light:#FCDCE4;--rose-dark:#A02040;
+  --purple:#6A4AB0;--purple-light:#EAE4F8;--purple-dark:#4A2A90;
+  --green:#228855;--green-light:#CCF0E0;--green-dark:#145533;
+  --orange:#D05820;--orange-light:#FCE8D8;
+  --blue:#1A60CC;--blue-light:#D0E4FF;--blue-dark:#0A3A88;
+  --navy:#10203A;--navy-mid:#1E3A5F;
+  --red:#CC2020;--red-light:#FFE0E0;
+  --text-dark:#181430;--text-mid:#352850;--text-soft:#5E587A;
+  --border:#DDD5F0;
+  --shadow:0 4px 28px rgba(100,74,176,0.10);
+  --shadow-hover:0 10px 40px rgba(100,74,176,0.20);
+  --radius:20px;--radius-sm:11px;
+  --font-body:'Georgia','Times New Roman',serif;
+  --font-head:'Trebuchet MS','Verdana',Arial,sans-serif;
+  --font-mono:'Courier New',monospace;
+  --font-farsi:'Tahoma','Arial',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--cream);color:var(--text-dark);font-size:18px;line-height:1.8;min-height:100vh;}
+
+/* ── HEADER ── */
+.site-header{background:linear-gradient(135deg,#10203A 0%,#1A60CC 50%,#0B8C8C 100%);position:sticky;top:0;z-index:1000;box-shadow:0 3px 20px rgba(0,0,0,0.3);}
+.header-inner{padding:14px 24px 10px;text-align:center;}
+.site-title{font-family:var(--font-head);font-size:clamp(1rem,3vw,1.65rem);color:#fff;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,0.3);}
+.site-sub{font-family:var(--font-farsi);font-size:0.83rem;color:rgba(255,255,255,0.82);margin-top:2px;}
+.top-nav{overflow-x:auto;background:rgba(255,255,255,0.12);border-top:1px solid rgba(255,255,255,0.18);}
+.top-nav ul{display:flex;list-style:none;padding:0 10px;gap:2px;white-space:nowrap;}
+.top-nav ul li button{background:none;border:none;cursor:pointer;padding:9px 15px;font-family:var(--font-head);font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.8);border-bottom:3px solid transparent;transition:all 0.2s;}
+.top-nav ul li button:hover,.top-nav ul li button.active{color:#fff;border-bottom-color:var(--gold);background:rgba(255,255,255,0.08);border-radius:6px 6px 0 0;}
+
+/* ── MAIN ── */
+.wrap{max-width:1000px;margin:0 auto;padding:28px 20px 80px;}
+.section-panel{display:none;animation:fadeUp 0.3s ease;}
+.section-panel.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── HERO ── */
+.seg-hero{border-radius:var(--radius);margin-bottom:28px;padding:40px 28px 32px;text-align:center;position:relative;overflow:hidden;}
+.seg-hero::before{content:'';position:absolute;inset:0;opacity:0.06;background:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%) 0 0/20px 20px;}
+.seg-hero.navy-hero{background:linear-gradient(135deg,var(--navy),var(--navy-mid));color:#fff;}
+.seg-hero.blue-hero{background:linear-gradient(135deg,#0A3A88,#1A60CC);color:#fff;}
+.seg-hero.green-hero{background:linear-gradient(135deg,#145533,#228855);color:#fff;}
+.hero-icon{font-size:3.2rem;display:block;margin-bottom:10px;}
+.hero-title{font-family:var(--font-head);font-size:clamp(1.4rem,4vw,2.1rem);font-weight:700;margin-bottom:6px;}
+.hero-fa{font-family:var(--font-farsi);font-size:1rem;opacity:0.85;margin-bottom:10px;direction:rtl;}
+.hero-desc{font-size:0.97rem;opacity:0.9;max-width:620px;margin:0 auto;}
+
+/* ── MINI NAV ── */
+.mini-nav{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px;}
+.mnav{background:#fff;border:2px solid var(--border);border-radius:50px;padding:8px 18px;font-family:var(--font-head);font-size:0.8rem;font-weight:700;cursor:pointer;color:var(--text-mid);transition:all 0.2s;}
+.mnav:hover{border-color:var(--blue);color:var(--blue);}
+.mnav.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+.mnav.gl{color:var(--green-dark);border-color:var(--green);}
+.mnav.gl:hover,.mnav.gl.active{background:var(--green);border-color:var(--green);color:#fff;}
+.mnav.bl{color:var(--blue-dark);border-color:var(--blue);}
+.mnav.bl:hover,.mnav.bl.active{background:var(--blue);border-color:var(--blue);color:#fff;}
+
+/* ── CARDS ── */
+.card{background:#fff;border-radius:var(--radius);padding:28px;margin-bottom:22px;box-shadow:var(--shadow);border:1px solid var(--border);}
+.card-navy{border-left:7px solid var(--navy);}
+.card-teal{border-left:7px solid var(--teal);}
+.card-rose{border-left:7px solid var(--rose);}
+.card-purple{border-left:7px solid var(--purple);}
+.card-green{border-left:7px solid var(--green);}
+.card-gold{border-left:7px solid var(--gold);}
+.card-blue{border-left:7px solid var(--blue);}
+.card-orange{border-left:7px solid var(--orange);}
+.card-red{border-left:7px solid var(--red);background:linear-gradient(135deg,#fff 85%,var(--red-light));}
+
+/* ── BILINGUAL ── */
+.bi{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0;}
+@media(max-width:620px){.bi{grid-template-columns:1fr;}}
+.en-box{background:var(--blue-light);border-radius:var(--radius-sm);padding:16px 18px;border-left:4px solid var(--blue);}
+.fa-box{background:var(--gold-light);border-radius:var(--radius-sm);padding:16px 18px;border-right:4px solid var(--gold);direction:rtl;text-align:right;font-family:var(--font-farsi);}
+.lang-tag{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-soft);margin-bottom:5px;display:block;}
+
+/* ── CRITICAL THINKING BOX ── */
+.crit-box{background:linear-gradient(135deg,#10203A,#1E3A5F);border-radius:var(--radius-sm);padding:20px 22px;margin:16px 0;color:#fff;position:relative;}
+.crit-box::before{content:'🧠 CRITICAL THINKING';font-family:var(--font-head);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;display:block;color:var(--gold);margin-bottom:8px;}
+.crit-q{font-size:0.97rem;color:#e8f0ff;line-height:1.7;margin-bottom:10px;}
+.crit-fa{font-family:var(--font-farsi);direction:rtl;text-align:right;font-size:0.88rem;color:rgba(255,255,255,0.7);margin-top:8px;border-top:1px solid rgba(255,255,255,0.15);padding-top:8px;}
+.reveal-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:50px;background:var(--gold);color:#000;font-family:var(--font-head);font-size:0.85rem;font-weight:700;border:none;cursor:pointer;margin-top:8px;transition:all 0.2s;}
+.reveal-btn:hover{background:var(--gold-dark);color:#fff;}
+.reveal-content{display:none;margin-top:14px;background:rgba(255,255,255,0.08);border-radius:var(--radius-sm);padding:14px 16px;font-size:0.93rem;color:#d8e8ff;line-height:1.75;}
+.reveal-content.open{display:block;}
+.reveal-fa{font-family:var(--font-farsi);direction:rtl;text-align:right;font-size:0.87rem;color:rgba(200,230,255,0.8);margin-top:10px;border-top:1px solid rgba(255,255,255,0.12);padding-top:8px;}
+
+/* ── EXAM TRAP BOX ── */
+.trap-box{background:linear-gradient(135deg,#A02040,#D94060);border-radius:var(--radius-sm);padding:18px 20px;margin:14px 0;color:#fff;}
+.trap-box::before{content:'⚠️ EXAM TRAP · تله آزمون';font-family:var(--font-head);font-size:0.7rem;font-weight:700;letter-spacing:1.5px;display:block;margin-bottom:7px;color:#FFD0DC;}
+.trap-text{font-size:0.95rem;line-height:1.7;}
+.trap-fa{font-family:var(--font-farsi);direction:rtl;text-align:right;font-size:0.87rem;color:rgba(255,220,228,0.9);margin-top:8px;border-top:1px solid rgba(255,255,255,0.2);padding-top:8px;}
+
+/* ── TIP BOX ── */
+.tip-box{background:var(--gold-light);border:2px dashed var(--gold);border-radius:var(--radius-sm);padding:15px 18px;margin:12px 0;display:flex;gap:12px;}
+.tip-icon{font-size:1.4rem;flex-shrink:0;}
+.tip-body{flex:1;}
+.tip-title{font-weight:700;color:var(--gold-dark);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;}
+.tip-text{font-size:0.93rem;color:var(--text-mid);}
+.tip-fa{font-family:var(--font-farsi);direction:rtl;text-align:right;font-size:0.87rem;color:var(--text-soft);margin-top:6px;border-top:1px dashed var(--gold);padding-top:5px;}
+
+/* ── HIGHLIGHT BOXES ── */
+.hl-teal{background:var(--teal-light);border-left:5px solid var(--teal);border-radius:var(--radius-sm);padding:14px 18px;margin:10px 0;}
+.hl-gold{background:var(--gold-light);border-left:5px solid var(--gold);border-radius:var(--radius-sm);padding:14px 18px;margin:10px 0;}
+.hl-green{background:var(--green-light);border-left:5px solid var(--green);border-radius:var(--radius-sm);padding:14px 18px;margin:10px 0;}
+.hl-rose{background:var(--rose-light);border-left:5px solid var(--rose);border-radius:var(--radius-sm);padding:14px 18px;margin:10px 0;}
+.hl-purple{background:var(--purple-light);border-left:5px solid var(--purple);border-radius:var(--radius-sm);padding:14px 18px;margin:10px 0;}
+.hl-blue{background:var(--blue-light);border-left:5px solid var(--blue);border-radius:var(--radius-sm);padding:14px 18px;margin:10px 0;}
+.hl-navy{background:#e8edf8;border-left:5px solid var(--navy);border-radius:var(--radius-sm);padding:14px 18px;margin:10px 0;}
+.hl-red{background:var(--red-light);border-left:5px solid var(--red);border-radius:var(--radius-sm);padding:14px 18px;margin:10px 0;}
+
+/* ── TABLE ── */
+.data-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:0.9rem;}
+.data-table th{padding:11px 14px;text-align:left;font-family:var(--font-head);font-size:0.85rem;}
+.data-table td{padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:top;}
+.data-table tr:nth-child(even) td{background:#fafafa;}
+.data-table tr:hover td{background:var(--blue-light);}
+.th-navy{background:var(--navy);color:#fff;}
+.th-green{background:var(--green);color:#fff;}
+.th-teal{background:var(--teal);color:#fff;}
+.th-purple{background:var(--purple);color:#fff;}
+.th-rose{background:var(--rose);color:#fff;}
+.fa-cell{font-family:var(--font-farsi);direction:rtl;text-align:right;font-size:0.87rem;}
+
+/* ── STEP LIST ── */
+.steps{list-style:none;margin:14px 0;}
+.steps li{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+.steps li:last-child{border-bottom:none;}
+.snum{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.88rem;flex-shrink:0;font-family:var(--font-head);}
+.snum.n{background:var(--navy);color:#fff;}
+.snum.r{background:var(--rose-light);color:var(--rose-dark);}
+.snum.g{background:var(--green-light);color:var(--green-dark);}
+.snum.b{background:var(--blue-light);color:var(--blue-dark);}
+.snum.p{background:var(--purple-light);color:var(--purple-dark);}
+.snum.t{background:var(--teal-light);color:var(--teal-dark);}
+.sbody{flex:1;}
+.sen{font-size:0.97rem;color:var(--text-dark);font-weight:600;margin-bottom:2px;}
+.sfa{font-family:var(--font-farsi);font-size:0.87rem;color:var(--text-soft);direction:rtl;text-align:right;margin-bottom:4px;}
+.sdesc{font-size:0.88rem;color:var(--text-mid);margin-top:4px;line-height:1.6;}
+
+/* ── ACCORDION ── */
+.accordion{margin:14px 0;}
+.acc-item{background:#fff;border-radius:var(--radius-sm);margin-bottom:9px;border:1px solid var(--border);overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+.acc-btn{width:100%;background:none;border:none;cursor:pointer;padding:15px 20px;text-align:left;font-family:var(--font-head);font-size:0.95rem;font-weight:700;color:var(--text-dark);display:flex;align-items:center;gap:10px;transition:background 0.18s;}
+.acc-btn:hover{background:#f5f0ff;}
+.acc-btn .aicon{margin-left:auto;transition:transform 0.25s;flex-shrink:0;}
+.acc-btn.open .aicon{transform:rotate(180deg);}
+.acc-body{display:none;padding:0 20px 18px;border-top:1px solid var(--border);}
+.acc-body.open{display:block;animation:fadeUp 0.2s ease;}
+
+/* ── QUIZ ── */
+.mini-quiz{background:var(--purple-light);border-radius:var(--radius);padding:22px;margin:18px 0;border:2px solid var(--purple);}
+.qtext{font-weight:700;font-size:1rem;color:var(--text-dark);margin-bottom:6px;line-height:1.5;}
+.qfa{font-family:var(--font-farsi);font-size:0.88rem;color:var(--text-mid);direction:rtl;text-align:right;margin-bottom:14px;}
+.qopts{display:flex;flex-direction:column;gap:10px;}
+.qopt{background:#fff;border:2px solid var(--border);border-radius:var(--radius-sm);padding:12px 16px;cursor:pointer;font-size:0.95rem;text-align:left;font-family:var(--font-body);transition:all 0.2s;color:var(--text-dark);line-height:1.5;}
+.qopt:hover:not(:disabled){border-color:var(--purple);transform:translateX(5px);}
+.qopt.correct{background:var(--green-light);border-color:var(--green);color:var(--green-dark);}
+.qopt.wrong{background:var(--rose-light);border-color:var(--rose);color:var(--rose-dark);}
+.qfb{margin-top:14px;padding:14px;border-radius:var(--radius-sm);display:none;font-size:0.92rem;line-height:1.65;}
+.qfb.show{display:block;}
+.fb-correct{background:var(--green-light);border-left:4px solid var(--green);}
+.fb-wrong{background:var(--rose-light);border-left:4px solid var(--rose);}
+.fb-fa{font-family:var(--font-farsi);direction:rtl;display:block;text-align:right;margin-top:8px;font-size:0.88rem;color:var(--text-soft);border-top:1px solid var(--border);padding-top:8px;}
+
+/* ── COACH ── */
+.coach-box{display:flex;gap:16px;align-items:flex-start;background:linear-gradient(135deg,#F0EBFF,var(--purple-light));border-radius:var(--radius);padding:20px;margin:20px 0;border:2px solid var(--purple);}
+.coach-av{font-size:2.4rem;flex-shrink:0;background:#fff;border-radius:50%;width:58px;height:58px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(106,74,176,0.2);}
+.coach-body{flex:1;}
+.coach-name{font-weight:700;color:var(--purple-dark);font-size:0.78rem;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.5px;}
+.coach-text{font-size:0.95rem;color:var(--text-dark);margin-bottom:6px;}
+.coach-fa{font-family:var(--font-farsi);font-size:0.88rem;color:var(--text-mid);direction:rtl;text-align:right;}
+
+/* ── DO / DON'T ── */
+.do-dont{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0;}
+@media(max-width:580px){.do-dont{grid-template-columns:1fr;}}
+.do-box{background:var(--green-light);border-radius:var(--radius-sm);padding:18px;border:2px solid var(--green);}
+.dont-box{background:var(--rose-light);border-radius:var(--radius-sm);padding:18px;border:2px solid var(--rose);}
+.dbox-title{font-family:var(--font-head);font-weight:700;font-size:0.93rem;margin-bottom:10px;}
+.do-box .dbox-title{color:var(--green-dark);}
+.dont-box .dbox-title{color:var(--rose-dark);}
+.ditem{font-size:0.9rem;color:var(--text-mid);margin-bottom:8px;padding-left:22px;position:relative;line-height:1.5;}
+.ditem::before{position:absolute;left:0;}
+.do-box .ditem::before{content:'✅';}
+.dont-box .ditem::before{content:'❌';}
+.ditem-fa{font-family:var(--font-farsi);direction:rtl;text-align:right;font-size:0.83rem;color:var(--text-soft);margin-top:2px;}
+
+/* ── SCALE / SPECTRUM ── */
+.spectrum{display:flex;border-radius:var(--radius-sm);overflow:hidden;margin:14px 0;font-size:0.82rem;font-weight:700;text-align:center;}
+.spec-seg{flex:1;padding:14px 8px;font-family:var(--font-head);}
+.spec-0{background:#228855;color:#fff;}
+.spec-1{background:#5aaa70;color:#fff;}
+.spec-2{background:#aaddbb;color:#145533;}
+.spec-3{background:#ffcc44;color:#333;}
+.spec-4{background:#ff8844;color:#fff;}
+.spec-5{background:#cc2020;color:#fff;}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;border-radius:50px;border:none;cursor:pointer;font-family:var(--font-head);font-size:0.95rem;font-weight:700;transition:all 0.22s;box-shadow:0 3px 12px rgba(0,0,0,0.12);}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.18);}
+.btn-navy{background:var(--navy);color:#fff;}
+.btn-blue{background:var(--blue);color:#fff;}
+.btn-green{background:var(--green);color:#fff;}
+.btn-rose{background:var(--rose);color:#fff;}
+.btn-outline{background:transparent;border:2px solid var(--navy);color:var(--navy);}
+.btn-outline:hover{background:var(--navy);color:#fff;}
+.btn-group{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0;}
+.btn-sm{padding:8px 16px;font-size:0.85rem;}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:22px 0;}
+
+/* ── SCENARIO ── */
+.scenario{background:#fff;border-radius:var(--radius);padding:22px;border:2px solid var(--border);margin:16px 0;box-shadow:var(--shadow);}
+.sc-header{display:flex;gap:12px;align-items:center;margin-bottom:14px;}
+.sc-icon{font-size:2rem;}
+.sc-title{font-family:var(--font-head);font-weight:700;font-size:1rem;}
+.sc-fa{font-family:var(--font-farsi);font-size:0.85rem;color:var(--text-soft);direction:rtl;}
+
+/* ── GRID ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:700px){.g2,.g3{grid-template-columns:1fr;}}
+
+/* ── MICRO ORGANISM SCALE ── */
+.organism-row{display:flex;align-items:center;gap:0;margin:5px 0;font-size:0.88rem;}
+.org-name{width:180px;font-weight:700;color:var(--text-dark);flex-shrink:0;}
+.org-bar{height:26px;border-radius:0 4px 4px 0;display:flex;align-items:center;padding:0 10px;font-size:0.78rem;font-weight:700;color:#fff;min-width:60px;}
+
+h2{font-family:var(--font-head);font-size:clamp(1.1rem,2.8vw,1.5rem);color:var(--text-dark);margin-bottom:5px;font-weight:700;}
+h3{font-family:var(--font-head);font-size:1.05rem;color:var(--text-mid);margin-bottom:4px;font-weight:700;}
+.fa-sub{font-family:var(--font-farsi);direction:rtl;text-align:right;font-size:0.88rem;color:var(--text-soft);margin-bottom:12px;}
+p{margin-bottom:9px;}
+strong{color:var(--text-dark);}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--navy);color:rgba(255,255,255,0.72);text-align:center;padding:24px 20px;font-size:0.82rem;margin-top:40px;}
+.site-footer strong{color:var(--gold);}
+.footer-fa{font-family:var(--font-farsi);direction:rtl;font-size:0.79rem;margin-top:4px;}
+
+/* ── SCROLL TOP ── */
+#scrollTop{position:fixed;bottom:22px;right:18px;background:var(--navy);color:#fff;border:none;border-radius:50%;width:44px;height:44px;font-size:1.2rem;cursor:pointer;box-shadow:0 4px 16px rgba(10,32,58,0.4);opacity:0;transition:opacity 0.3s;z-index:999;}
+#scrollTop.vis{opacity:1;}
+
+@media(max-width:500px){body{font-size:16px;}.card{padding:18px;}.wrap{padding:16px 12px 60px;}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-title">⚕️ CCMA Bilingual Success Lab — Segment 4</div>
+    <div class="site-sub">Sterilization · Legal & Ethics · Administrative Skills · استریل‌سازی | حقوق و اخلاق | مهارت‌های اداری</div>
+  </div>
+  <nav class="top-nav">
+    <ul>
+      <li><button onclick="gotoSeg(3)">← Seg 3</button></li>
+      <li><button class="active" onclick="switchSection('sterilization',this)">🧫 Sterilization (Deep)</button></li>
+      <li><button onclick="switchSection('legal',this)">⚖️ Legal & Ethics</button></li>
+      <li><button onclick="switchSection('admin',this)">📋 Administrative</button></li>
+      <li><button onclick="gotoSeg(5)">Seg 5 →</button></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+
+<!-- ================================================================
+     SECTION A: STERILIZATION & INFECTION CONTROL — DEEP DIVE
+================================================================ -->
+<section id="sterilization" class="section-panel active">
+
+  <div class="seg-hero navy-hero">
+    <span class="hero-icon">🧫</span>
+    <div class="hero-title">Sterilization & Infection Control — Full Deep Dive</div>
+    <div class="hero-fa">استریل‌سازی و کنترل عفونت — آموزش کامل و عمیق</div>
+    <p class="hero-desc">This section goes far beyond "clean vs sterile." You will learn exactly which organisms are killed, how, at what temperature, and why — with every exam trap explained.</p>
+  </div>
+
+  <div class="mini-nav">
+    <button class="mnav active" onclick="showSub('sterilization','microbiology',this)">🦠 Microbiology of Pathogens</button>
+    <button class="mnav" onclick="showSub('sterilization','levels',this)">📊 Levels of Kill</button>
+    <button class="mnav" onclick="showSub('sterilization','autoclave',this)">🔥 Autoclave — Full Detail</button>
+    <button class="mnav" onclick="showSub('sterilization','methods',this)">🧪 All Methods Compared</button>
+    <button class="mnav" onclick="showSub('sterilization','handwashing',this)">🧼 Hand Hygiene</button>
+    <button class="mnav" onclick="showSub('sterilization','ppe',this)">🥼 PPE & Precautions</button>
+    <button class="mnav" onclick="showSub('sterilization','spaulding',this)">🏷️ Spaulding Classification</button>
+  </div>
+
+  <!-- ── MICROBIOLOGY ── -->
+  <div id="sterilization_microbiology" class="sub-panel">
+    <div class="card card-navy">
+      <h2>🦠 What Are We Fighting? The Hierarchy of Pathogens</h2>
+      <div class="fa-sub">با چه چیزی می‌جنگیم؟ سلسله‌مراتب عوامل بیماری‌زا</div>
+      <div class="bi">
+        <div class="en-box">
+          <span class="lang-tag">English — Why This Matters</span>
+          <p>Not all disinfectants kill all pathogens. Some microorganisms are <strong>easy to kill</strong>. Others are <strong>almost impossible</strong> to destroy without extreme heat or pressure. The CCMA exam tests whether you know the difference.</p>
+          <p>The hardest thing to kill: <strong>bacterial spores</strong>. The easiest: <strong>enveloped viruses</strong>. Everything else falls in between.</p>
+        </div>
+        <div class="fa-box">
+          <span class="lang-tag">فارسی</span>
+          <p>همه ضدعفونی‌کننده‌ها همه عوامل بیماری‌زا را نمی‌کشند. برخی میکروارگانیسم‌ها <strong>آسان کشته می‌شوند</strong>. برخی دیگر <strong>تقریباً غیرممکن</strong> است بدون حرارت یا فشار شدید از بین بروند.</p>
+          <p>سخت‌ترین چیز برای کشتن: <strong>اسپور باکتری</strong>. آسان‌ترین: <strong>ویروس‌های پوشش‌دار</strong>.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <h3>📊 Pathogen Resistance Scale — Hardest to Easiest to Kill</h3>
+      <p style="margin-bottom:14px;font-size:0.9rem;">🔴 = Very hard to kill &nbsp;|&nbsp; 🟢 = Easiest to kill</p>
+
+      <div style="overflow-x:auto;">
+        <table class="data-table">
+          <thead>
+            <tr class="th-navy">
+              <th>Difficulty · سختی</th>
+              <th>Pathogen Type · نوع عامل</th>
+              <th>Examples · مثال‌ها</th>
+              <th>What Kills It · چه چیزی آن را می‌کشد</th>
+              <th>فارسی</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:#cc2020;">🔴🔴🔴 HARDEST</strong></td>
+              <td><strong>Bacterial Spores</strong></td>
+              <td>Clostridium difficile (C. diff), Bacillus anthracis (anthrax), Clostridium botulinum</td>
+              <td>Only STERILIZATION kills spores. Requires autoclave (121°C/15 psi for 15–30 min) OR ethylene oxide gas OR hydrogen peroxide plasma.</td>
+              <td class="fa-cell">فقط استریل‌سازی اسپورها را می‌کشد. نیاز به اتوکلاو (۱۲۱ درجه / ۱۵ psi) یا گاز اتیلن اکسید دارد.</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#cc5500;">🔴🔴 VERY HARD</strong></td>
+              <td><strong>Mycobacteria</strong></td>
+              <td>Mycobacterium tuberculosis (TB), Mycobacterium avium</td>
+              <td>High-level disinfection (glutaraldehyde, bleach 1:10). Resistant to many common disinfectants due to waxy cell wall (mycolic acid).</td>
+              <td class="fa-cell">ضدعفونی سطح بالا (گلوتارآلدهید، سفیدکننده ۱:۱۰). به خاطر دیواره سلولی مومی مقاوم است.</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#aa6600;">🟠 HARD</strong></td>
+              <td><strong>Non-enveloped Viruses (Naked)</strong></td>
+              <td>Norovirus, Poliovirus, Hepatitis A, Parvovirus</td>
+              <td>Intermediate to high-level disinfection. Alcohol alone does NOT reliably kill these. Need bleach or EPA-registered disinfectant.</td>
+              <td class="fa-cell">ضدعفونی متوسط تا بالا. الکل به تنهایی اینها را نمی‌کشد. نیاز به سفیدکننده یا ضدعفونی ثبت‌شده EPA دارد.</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#aa8800;">🟡 MODERATE</strong></td>
+              <td><strong>Fungi & Fungal Spores</strong></td>
+              <td>Candida, Aspergillus, dermatophytes (ringworm)</td>
+              <td>Intermediate-level disinfection. Many common disinfectants work. Antifungal agents for infections.</td>
+              <td class="fa-cell">ضدعفونی سطح متوسط. بسیاری از ضدعفونی‌کننده‌های رایج کار می‌کنند.</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#226633;">🟢 MODERATE-EASY</strong></td>
+              <td><strong>Vegetative Bacteria</strong></td>
+              <td>Staphylococcus, E. coli, MRSA, Streptococcus, Salmonella</td>
+              <td>Low to intermediate disinfection. Soap + water, alcohol 70%, bleach all work. Note: MRSA is still bacteria — it's resistant to antibiotics, NOT to disinfectants.</td>
+              <td class="fa-cell">ضدعفونی سطح پایین تا متوسط. صابون، الکل ۷۰٪، سفیدکننده همه کار می‌کنند. توجه: MRSA فقط به آنتی‌بیوتیک مقاوم است، نه به ضدعفونی‌کننده.</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#228855;">🟢🟢 EASIEST</strong></td>
+              <td><strong>Enveloped Viruses (Lipid)</strong></td>
+              <td>HIV, Hepatitis B & C, Influenza, COVID-19, Herpes, Ebola</td>
+              <td>LOW-level disinfection. Soap, alcohol, bleach, most disinfectants work. The lipid envelope is easily destroyed.</td>
+              <td class="fa-cell">ضدعفونی سطح پایین. صابون، الکل، سفیدکننده همه کار می‌کنند. پوشش چربی به راحتی از بین می‌رود.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trap-box">
+        <div class="trap-text">
+          <strong>TRAP #1:</strong> Students confuse MRSA resistance. MRSA (Methicillin-Resistant Staphylococcus aureus) is resistant to <em>antibiotics</em> — not to disinfectants. Standard disinfectants still KILL MRSA. The answer "MRSA cannot be killed by disinfectants" is WRONG.<br><br>
+          <strong>TRAP #2:</strong> HIV seems scary but is actually one of the EASIEST pathogens to kill. It has a lipid (fat) envelope that disinfectants destroy easily. A question might say "which organism is hardest to kill?" — HIV is NOT the answer. Bacterial spores are.<br><br>
+          <strong>TRAP #3:</strong> Alcohol (even 70%) does NOT reliably kill non-enveloped viruses like Norovirus and C. diff spores. This is why bleach (sodium hypochlorite) is specifically recommended for C. diff outbreaks.
+        </div>
+        <div class="trap-fa">
+          تله ۱: MRSA فقط به آنتی‌بیوتیک مقاوم است، نه به ضدعفونی‌کننده.<br>
+          تله ۲: HIV یکی از آسان‌ترین میکروب‌ها برای کشتن است — به خاطر پوشش چربی.<br>
+          تله ۳: الکل اسپورهای C. diff را نمی‌کشد — فقط سفیدکننده کار می‌کند.
+        </div>
+      </div>
+
+      <div class="crit-box">
+        <div class="crit-q">A patient with C. diff (Clostridium difficile) is in the room. You finish caring for them and go to clean the surfaces. Which disinfectant should you use and why? Your coworker hands you alcohol wipes. What do you say?</div>
+        <div class="crit-fa">بیمار با C. diff در اتاق است. سطوح را تمیز می‌کنید. همکارتان دستمال‌های الکلی می‌دهد. چه می‌گویید؟</div>
+        <button class="reveal-btn" onclick="toggleReveal(this)">🔍 See Answer</button>
+        <div class="reveal-content">
+          <strong>❌ Do NOT use alcohol wipes for C. diff.</strong> C. difficile produces <strong>endospores</strong> (bacterial spores) that alcohol cannot destroy. You need <strong>bleach (sodium hypochlorite 1:10 dilution)</strong> or an EPA-registered sporicidal agent.<br><br>
+          You should say: "Alcohol wipes don't work on C. diff spores. We need to use bleach solution per our protocol."<br><br>
+          Also: For C. diff, always use <strong>contact precautions + gown and gloves</strong>. Hand sanitizer (alcohol-based) is NOT sufficient — wash hands with soap and water because friction physically removes the spores.
+          <div class="reveal-fa">از دستمال الکلی برای C. diff استفاده نکنید. اسپورهای C. diff با الکل کشته نمی‌شوند. نیاز به سفیدکننده (سدیم هیپوکلریت ۱:۱۰) دارید. همچنین برای C. diff باید با آب و صابون دست شست — ژل الکلی اسپورها را فیزیکی از دست نمی‌زداید.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mini Quiz -->
+    <div class="mini-quiz">
+      <div class="qtext">Which microorganism is the HARDEST to kill and requires sterilization (not just disinfection)?</div>
+      <div class="qfa">کدام میکروارگانیسم سخت‌ترین است و نیاز به استریل‌سازی (نه فقط ضدعفونی) دارد؟</div>
+      <div class="qopts" id="q_micro1">
+        <button class="qopt" onclick="checkQ('q_micro1',this,false,'HIV has a lipid envelope — one of the easiest pathogens to kill with basic disinfection.')">A. HIV (human immunodeficiency virus)</button>
+        <button class="qopt" onclick="checkQ('q_micro1',this,false,'MRSA is a bacterium in vegetative form — standard disinfectants kill it easily. Its resistance is only to antibiotics.')">B. MRSA (methicillin-resistant Staphylococcus aureus)</button>
+        <button class="qopt" onclick="checkQ('q_micro1',this,true,'Bacterial spores (like those from C. diff and anthrax) are the hardest to kill. They require sterilization — autoclave, ethylene oxide, or sporicidal agents. Simple disinfection is not enough.')">C. Bacterial spores (e.g., Clostridium difficile spores) ✓</button>
+        <button class="qopt" onclick="checkQ('q_micro1',this,false,'Norovirus is non-enveloped and harder than HIV to kill, but it is still easier to destroy than bacterial spores.')">D. Norovirus</button>
+      </div>
+      <div class="qfb" id="q_micro1_fb"></div>
+    </div>
+  </div>
+
+  <!-- ── LEVELS OF KILL ── -->
+  <div id="sterilization_levels" class="sub-panel" style="display:none;">
+    <div class="card card-teal">
+      <h2>📊 The Three Levels of Microbial Kill — Every Detail</h2>
+      <div class="fa-sub">سه سطح کشتن میکروب‌ها — همه جزئیات</div>
+      <div class="bi">
+        <div class="en-box">
+          <span class="lang-tag">English</span>
+          <p>There are three levels: <strong>Sterilization</strong>, <strong>Disinfection</strong>, and <strong>Sanitization</strong>. They are NOT the same. Choosing the wrong level for a procedure is dangerous.</p>
+        </div>
+        <div class="fa-box">
+          <span class="lang-tag">فارسی</span>
+          <p>سه سطح وجود دارد: <strong>استریل‌سازی</strong>، <strong>ضدعفونی‌کردن</strong>، و <strong>بهداشتی‌سازی</strong>. اینها یکسان نیستند. انتخاب سطح اشتباه خطرناک است.</p>
+        </div>
+      </div>
+
+      <div style="overflow-x:auto;margin-top:14px;">
+        <table class="data-table">
+          <thead>
+            <tr class="th-teal">
+              <th>Level · سطح</th>
+              <th>What It Kills · چه می‌کشد</th>
+              <th>What It Does NOT Kill · چه نمی‌کشد</th>
+              <th>Methods · روش‌ها</th>
+              <th>Used For · استفاده برای</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>🔴 STERILIZATION<br>استریل‌سازی</strong></td>
+              <td style="color:var(--green-dark);"><strong>EVERYTHING:</strong> all bacteria (vegetative + spores), all viruses, all fungi, all prions</td>
+              <td style="color:var(--rose-dark);">Nothing — kills ALL life forms</td>
+              <td>Autoclave (steam), Ethylene Oxide gas, Hydrogen Peroxide Plasma, Dry Heat oven, Chemical sterilants (glutaraldehyde 10+ hours)</td>
+              <td>Surgical instruments, needles, anything that enters sterile tissue or bloodstream (critical items)</td>
+            </tr>
+            <tr>
+              <td><strong>🟠 HIGH-LEVEL DISINFECTION (HLD)<br>ضدعفونی سطح بالا</strong></td>
+              <td style="color:var(--green-dark);">All bacteria (including TB), most viruses, most fungi. Kills many (not all) spores.</td>
+              <td style="color:var(--rose-dark);">Cannot guarantee killing ALL spores</td>
+              <td>Glutaraldehyde (Cidex), hydrogen peroxide 6%, ortho-phthalaldehyde (OPA), bleach 1:10 for some surfaces</td>
+              <td>Semi-critical items: endoscopes, laryngoscope blades, vaginal specula, any item touching mucous membranes</td>
+            </tr>
+            <tr>
+              <td><strong>🟡 INTERMEDIATE-LEVEL DISINFECTION<br>ضدعفونی متوسط</strong></td>
+              <td style="color:var(--green-dark);">Most bacteria (including TB), enveloped viruses, some non-enveloped viruses, most fungi</td>
+              <td style="color:var(--rose-dark);">Bacterial spores, some non-enveloped viruses</td>
+              <td>70% isopropyl alcohol, iodophors (betadine), phenolics, bleach 1:100</td>
+              <td>Non-critical items that contact intact skin: stethoscopes, blood pressure cuffs, thermometers</td>
+            </tr>
+            <tr>
+              <td><strong>🟢 LOW-LEVEL DISINFECTION<br>ضدعفونی سطح پایین</strong></td>
+              <td style="color:var(--green-dark);">Some bacteria, enveloped viruses (HIV, Hep B, COVID), some fungi</td>
+              <td style="color:var(--rose-dark);">TB bacillus, spores, non-enveloped viruses (norovirus, polio, Hep A)</td>
+              <td>Quaternary ammonium compounds (quats), diluted bleach 1:500, soap and water</td>
+              <td>Environmental surfaces: floors, walls, exam tables, countertops (non-critical)</td>
+            </tr>
+            <tr>
+              <td><strong>⚪ SANITIZATION<br>بهداشتی‌سازی</strong></td>
+              <td style="color:var(--green-dark);">Reduces microbial count to a safe level per public health standards</td>
+              <td style="color:var(--rose-dark);">Does not claim to kill specific pathogens</td>
+              <td>Detergents, soap, dishwashing, laundry</td>
+              <td>Food service, laundry, general household surfaces</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trap-box" style="margin-top:18px;">
+        <div class="trap-text">
+          <strong>TRAP:</strong> "High-level disinfection" does NOT mean sterilization. HLD kills <em>most</em> spores but cannot guarantee complete spore elimination. For items entering sterile tissue, you still need full sterilization.<br><br>
+          <strong>TRAP:</strong> Glutaraldehyde used for <strong>sterilization</strong> requires 10 hours of contact time. The same chemical used for <strong>high-level disinfection</strong> requires only 20–90 minutes. Contact time MATTERS — and the exam may test this.
+        </div>
+        <div class="trap-fa">
+          تله: HLD اسپورهای باکتری را به طور کامل از بین نمی‌برد.<br>
+          تله: گلوتارآلدهید برای استریل‌سازی ۱۰ ساعت، برای ضدعفونی سطح بالا فقط ۲۰-۹۰ دقیقه نیاز دارد.
+        </div>
+      </div>
+
+      <div class="mini-quiz">
+        <div class="qtext">An endoscope (scope used inside the GI tract) touches mucous membranes. What is the MINIMUM required level of processing?</div>
+        <div class="qfa">آندوسکوپ (دوربینی که داخل دستگاه گوارش می‌رود) به غشاهای مخاطی لمس می‌کند. حداقل سطح پردازش چیست؟</div>
+        <div class="qopts" id="q_level1">
+          <button class="qopt" onclick="checkQ('q_level1',this,false,'Low-level is for non-critical surfaces only (floors, counters, exam tables). An item touching mucous membranes is semi-critical.')">A. Low-level disinfection</button>
+          <button class="qopt" onclick="checkQ('q_level1',this,false,'Intermediate-level is for non-critical items that touch only intact skin — not for items touching mucous membranes.')">B. Intermediate-level disinfection</button>
+          <button class="qopt" onclick="checkQ('q_level1',this,true,'Endoscopes contact mucous membranes → semi-critical item → requires High-Level Disinfection (HLD). Examples: glutaraldehyde, OPA, hydrogen peroxide 6%.')">C. High-level disinfection ✓</button>
+          <button class="qopt" onclick="checkQ('q_level1',this,false,'Sterilization is required for critical items that enter sterile tissue or the bloodstream. An endoscope touching mucous membranes (not sterile tissue) requires HLD, not full sterilization — unless it is used in sterile cavities.')">D. Sterilization</button>
+        </div>
+        <div class="qfb" id="q_level1_fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── AUTOCLAVE DEEP DIVE ── -->
+  <div id="sterilization_autoclave" class="sub-panel" style="display:none;">
+    <div class="card card-rose">
+      <h2>🔥 The Autoclave — Complete Technical Knowledge</h2>
+      <div class="fa-sub">اتوکلاو — دانش فنی کامل</div>
+      <div class="bi">
+        <div class="en-box">
+          <span class="lang-tag">English — What Is an Autoclave?</span>
+          <p>An autoclave is a machine that uses <strong>pressurized steam</strong> (moist heat under pressure) to kill ALL forms of microbial life — including the hardest-to-kill bacterial spores. It is the most reliable method of sterilization for heat-stable instruments.</p>
+        </div>
+        <div class="fa-box">
+          <span class="lang-tag">فارسی</span>
+          <p>اتوکلاو دستگاهی است که از <strong>بخار تحت فشار</strong> (گرمای مرطوب زیر فشار) استفاده می‌کند تا همه اشکال زندگی میکروبی را بکشد — از جمله سخت‌ترین آن‌ها، اسپور باکتری. قابل اعتمادترین روش استریل‌سازی برای ابزارهای مقاوم به حرارت است.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <h3>⚙️ How It Works — The Physics</h3>
+      <div class="hl-navy">
+        <p>Water boils at 100°C (212°F) at normal atmospheric pressure. But in an autoclave, <strong>pressure is added (15 psi / 103 kPa above atmospheric)</strong>, which raises the boiling point of water to <strong>121°C (250°F)</strong>.</p>
+        <p>At 121°C, steam penetrates materials and denatures (destroys) proteins inside microorganisms, killing them permanently. <strong>Spores require sustained exposure</strong> because they have a protective protein coat.</p>
+        <div style="font-family:var(--font-farsi);direction:rtl;text-align:right;margin-top:10px;font-size:0.88rem;color:var(--text-mid);border-top:1px solid var(--border);padding-top:8px;">آب در فشار طبیعی در ۱۰۰ درجه می‌جوشد. اما در اتوکلاو، فشار اضافه می‌شود (۱۵ psi) که نقطه جوش را به ۱۲۱ درجه سانتی‌گراد می‌رساند. در این دما بخار وارد مواد می‌شود و پروتئین‌های میکروارگانیسم‌ها را تخریب می‌کند.</div>
+      </div>
+
+      <div style="overflow-x:auto;margin-top:18px;">
+        <table class="data-table">
+          <thead>
+            <tr class="th-rose">
+              <th>Autoclave Parameters · پارامترهای اتوکلاو</th>
+              <th>Standard Setting · تنظیم استاندارد</th>
+              <th>Notes · توضیحات</th>
+              <th>فارسی</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Temperature</strong></td>
+              <td><strong>121°C (250°F)</strong></td>
+              <td>This is the MINIMUM effective temperature. Some items require 134°C for faster cycles.</td>
+              <td class="fa-cell">۱۲۱ درجه سانتی‌گراد حداقل دمای مؤثر. برخی موارد ۱۳۴ درجه نیاز دارند.</td>
+            </tr>
+            <tr>
+              <td><strong>Pressure</strong></td>
+              <td><strong>15 psi (103 kPa)</strong> above atmospheric</td>
+              <td>The pressure is what raises the boiling point of water. Without it, steam reaches only 100°C — not enough to kill spores.</td>
+              <td class="fa-cell">فشار، نقطه جوش آب را بالا می‌برد. بدون فشار، بخار فقط ۱۰۰ درجه می‌رسد — برای کشتن اسپور کافی نیست.</td>
+            </tr>
+            <tr>
+              <td><strong>Time (wrapped items)</strong></td>
+              <td><strong>15–30 minutes</strong> at 121°C</td>
+              <td>Wrapped instruments need longer. Unwrapped: 15 min. Wrapped: 20–30 min. Bulk loads: 30 min or more.</td>
+              <td class="fa-cell">ابزارهای بسته‌بندی‌شده بیشتر زمان نیاز دارند. بدون بسته‌بندی: ۱۵ دقیقه. با بسته‌بندی: ۲۰-۳۰ دقیقه.</td>
+            </tr>
+            <tr>
+              <td><strong>Time (at 134°C — Flash)</strong></td>
+              <td><strong>3–4 minutes</strong></td>
+              <td>Called "flash sterilization" or "gravity cycle." Used for unwrapped instruments needed urgently. NOT recommended for implants.</td>
+              <td class="fa-cell">استریل‌سازی فلش: ۳-۴ دقیقه در ۱۳۴ درجه. برای ابزار فوری و بدون بسته‌بندی. برای ایمپلنت توصیه نمی‌شود.</td>
+            </tr>
+            <tr>
+              <td><strong>What is killed</strong></td>
+              <td><strong>ALL</strong> — bacteria, spores, viruses, fungi, prions*</td>
+              <td>*Note: Prions (cause of CJD/mad cow) are extremely resistant — autoclaving at 134°C for 60+ min, or longer special protocols may be needed.</td>
+              <td class="fa-cell">همه چیز کشته می‌شود. استثنا: پریون‌ها (عامل CJD) بسیار مقاوم هستند و پروتکل‌های ویژه نیاز دارند.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="divider"></div>
+      <h3>🔬 Autoclave Monitoring — How Do We Verify It Worked?</h3>
+      <p style="margin-bottom:14px;">Using an autoclave isn't enough — you must <strong>verify</strong> it actually achieved sterilization. There are THREE types of monitoring:</p>
+
+      <div style="overflow-x:auto;">
+        <table class="data-table">
+          <thead><tr class="th-navy"><th>Monitor Type · نوع نظارت</th><th>How It Works</th><th>What It Tells You</th><th>Frequency · دفعات</th><th>فارسی</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>🌡️ Physical / Mechanical Monitors</strong></td>
+              <td>The autoclave's own gauges — temperature gauge, pressure gauge, time counter, printout</td>
+              <td>Shows that the machine reached correct temp/pressure/time DURING the cycle</td>
+              <td>Every cycle — always check the printout or digital display</td>
+              <td class="fa-cell">گیج‌های خود دستگاه — دما، فشار، زمان. هر سیکل باید چک شود.</td>
+            </tr>
+            <tr>
+              <td><strong>🎨 Chemical Indicators (CI)</strong></td>
+              <td>Color-changing tape or strips placed inside/outside the pack. Changes color when exposed to heat/steam.</td>
+              <td>Shows the pack was EXPOSED to steam. Does NOT confirm organism death.</td>
+              <td>Every pack, every load</td>
+              <td class="fa-cell">نوار رنگ‌تغییر‌دهنده. فقط نشان می‌دهد بسته در معرض بخار قرار گرفته. مرگ میکروب را تأیید نمی‌کند.</td>
+            </tr>
+            <tr>
+              <td><strong>🧫 Biological Indicators (BI) — GOLD STANDARD</strong></td>
+              <td>Spore test — uses live spores of Geobacillus stearothermophilus (most heat-resistant spore known). Placed in the autoclave with the load.</td>
+              <td>If the spores are dead → sterilization was SUCCESSFUL. This is the ONLY method that confirms actual organism death.</td>
+              <td>At least weekly, or per facility policy. Required after repairs, new installations, or load failures.</td>
+              <td class="fa-cell">آزمون اسپور — از اسپور زنده Geobacillus stearothermophilus استفاده می‌کند. اگر اسپورها مردند = استریل‌سازی موفق. این تنها روشی است که مرگ واقعی ارگانیسم را تأیید می‌کند. استاندارد طلایی.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trap-box">
+        <div class="trap-text">
+          <strong>TRAP #1 — Chemical Indicators:</strong> The color change on autoclave tape means the pack was EXPOSED TO HEAT — NOT that sterilization was achieved. A pack can turn the indicator color but still fail sterilization if the temperature wasn't high enough or long enough. The color change is not proof of sterility.<br><br>
+          <strong>TRAP #2 — Wet Packs:</strong> If items come out of the autoclave WET, they are considered CONTAMINATED and must be re-sterilized. Moisture allows bacteria to wick into the pack through the wrapper.<br><br>
+          <strong>TRAP #3 — Dry Heat vs. Moist Heat:</strong> Dry heat ovens also sterilize but require MUCH higher temperature and longer time: 160–170°C for 1–2 hours. Used for items that steam would damage (powders, oils, sharp instruments that moisture dulls). The autoclave (moist heat) is FASTER and more penetrating.
+        </div>
+        <div class="trap-fa">
+          تله ۱: تغییر رنگ نوار فقط نشان می‌دهد بسته در معرض حرارت بوده — نه اینکه استریل شده. اگر بسته مرطوب بیرون بیاید، آلوده محسوب می‌شود.<br>
+          تله ۳: حرارت خشک (فر) دما و زمان خیلی بیشتری نیاز دارد: ۱۶۰-۱۷۰ درجه برای ۱-۲ ساعت.
+        </div>
+      </div>
+
+      <div class="crit-box">
+        <div class="crit-q">You load the autoclave with a set of surgical instruments. After the cycle ends, you open the door and find the packs are wet and damp. What do you do — and why?</div>
+        <div class="crit-fa">بعد از سیکل، بسته‌های ابزار مرطوب هستند. چه می‌کنید و چرا؟</div>
+        <button class="reveal-btn" onclick="toggleReveal(this)">🔍 See Answer</button>
+        <div class="reveal-content">
+          <strong>❌ DO NOT use these instruments.</strong> Wet packs are considered CONTAMINATED.<br><br>
+          Here's why: The autoclave wrapping material is designed to keep steam out once the cycle ends — but it must be DRY to do so. When packs are wet, moisture creates a "wicking" pathway — bacteria from the outside environment can travel through the damp material into the pack.<br><br>
+          <strong>What to do:</strong><br>
+          1. Do NOT use the instruments<br>
+          2. Set the packs aside — label them as contaminated<br>
+          3. Check why the packs got wet: overloading the autoclave? Items not wrapped correctly? Cycle settings wrong?<br>
+          4. Re-wrap and re-sterilize the instruments<br>
+          5. Report the issue to your supervisor per protocol
+          <div class="reveal-fa">بسته‌های مرطوب آلوده هستند. رطوبت باکتری را از خارج به داخل بسته منتقل می‌کند. ابزار را استفاده نکنید. علت را بررسی کنید: اضافه‌بار؟ بسته‌بندی غلط؟ تنظیمات اشتباه؟ مجدداً استریل کنید.</div>
+        </div>
+      </div>
+
+      <div class="mini-quiz">
+        <div class="qtext">The biological indicator (spore test) used to verify autoclave effectiveness contains which organism?</div>
+        <div class="qfa">آزمون اسپور برای تأیید اثربخشی اتوکلاو از کدام ارگانیسم استفاده می‌کند؟</div>
+        <div class="qopts" id="q_auto1">
+          <button class="qopt" onclick="checkQ('q_auto1',this,false,'C. diff is used for testing sporicidal disinfectants, not autoclave biological indicators.')">A. Clostridium difficile</button>
+          <button class="qopt" onclick="checkQ('q_auto1',this,true,'Geobacillus stearothermophilus (formerly Bacillus stearothermophilus) is the most heat-resistant spore known. If the autoclave kills THESE spores, it killed everything.')">B. Geobacillus stearothermophilus ✓</button>
+          <button class="qopt" onclick="checkQ('q_auto1',this,false,'Bacillus subtilis is used for dry-heat and ethylene oxide sterilization indicators — not autoclaves.')">C. Bacillus subtilis (used for ETO gas and dry heat)</button>
+          <button class="qopt" onclick="checkQ('q_auto1',this,false,'MRSA is a vegetative bacterium easily killed by autoclaving. It is not used as an indicator organism.')">D. MRSA</button>
+        </div>
+        <div class="qfb" id="q_auto1_fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ALL METHODS COMPARED ── -->
+  <div id="sterilization_methods" class="sub-panel" style="display:none;">
+    <div class="card card-purple">
+      <h2>🧪 All Sterilization Methods — Compared & Contrasted</h2>
+      <div class="fa-sub">تمام روش‌های استریل‌سازی — مقایسه کامل</div>
+
+      <div style="overflow-x:auto;">
+        <table class="data-table">
+          <thead><tr class="th-purple"><th>Method · روش</th><th>Mechanism · مکانیسم</th><th>Temp / Parameters</th><th>Advantages · مزایا</th><th>Disadvantages / Limitations · معایب</th><th>Used For</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Steam Autoclave (Moist Heat)</strong><br><span class="fa-cell" style="font-size:0.8rem;">اتوکلاو بخار</span></td>
+              <td>Pressurized steam denatures proteins</td>
+              <td>121°C / 15 psi / 15–30 min<br>OR 134°C / 3–4 min</td>
+              <td>Fast, reliable, no toxic residues, penetrates packaging, kills spores</td>
+              <td>Cannot use for heat/moisture-sensitive items (plastics, rubber, oils, powders, electronics)</td>
+              <td>Metal surgical instruments, surgical packs, stainless steel items</td>
+            </tr>
+            <tr>
+              <td><strong>Dry Heat Oven</strong><br><span class="fa-cell" style="font-size:0.8rem;">فر گرمای خشک</span></td>
+              <td>Oxidation and protein denaturation</td>
+              <td>160°C for 2 hours OR 170°C for 1 hour</td>
+              <td>Good for moisture-sensitive items, does not dull sharp edges from rusting</td>
+              <td>Much slower. Cannot use for plastics or rubber. Less penetrating than moist heat.</td>
+              <td>Oils, powders, certain sharp instruments, glassware</td>
+            </tr>
+            <tr>
+              <td><strong>Ethylene Oxide (ETO) Gas</strong><br><span class="fa-cell" style="font-size:0.8rem;">گاز اتیلن اکسید</span></td>
+              <td>Alkylates DNA — prevents organism reproduction</td>
+              <td>30–60°C / Several hours / Requires aeration 8–12 hours after</td>
+              <td>Can sterilize heat and moisture sensitive items (plastics, rubber, electronics)</td>
+              <td>Toxic and carcinogenic gas. Requires special equipment. Long cycle + aeration time. Expensive.</td>
+              <td>Endoscopes, catheters, delicate instruments, electronics, plastics</td>
+            </tr>
+            <tr>
+              <td><strong>Hydrogen Peroxide Gas Plasma</strong><br><span class="fa-cell" style="font-size:0.8rem;">پلاسمای هیدروژن پراکسید</span></td>
+              <td>Plasma state of H₂O₂ destroys cell membranes and DNA</td>
+              <td>50°C / 45–75 minutes</td>
+              <td>Low temperature (safe for plastics), no toxic residues, faster than ETO</td>
+              <td>Cannot use for cellulose (paper, cotton, linen), liquids, or long narrow lumens</td>
+              <td>Endoscopes, delicate instruments, some plastics</td>
+            </tr>
+            <tr>
+              <td><strong>Chemical Sterilants (Glutaraldehyde)</strong><br><span class="fa-cell" style="font-size:0.8rem;">استریل‌کننده شیمیایی</span></td>
+              <td>Cross-links proteins and nucleic acids</td>
+              <td>Room temp / 10 hours for sterilization; 20–90 min for HLD</td>
+              <td>Can use for heat-sensitive items</td>
+              <td>Toxic, must be used in ventilated area, items must be rinsed thoroughly, limited shelf life once activated</td>
+              <td>Endoscopes, respiratory therapy equipment</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="crit-box" style="margin-top:20px;">
+        <div class="crit-q">A clinic needs to sterilize a flexible fiber-optic endoscope. A student says, "Just autoclave it." Why is this wrong? What should be used instead?</div>
+        <div class="crit-fa">یک دانش‌آموز می‌گوید «فقط آن را اتوکلاو کنید.» چرا این اشتباه است؟ چه باید استفاده شود؟</div>
+        <button class="reveal-btn" onclick="toggleReveal(this)">🔍 See Answer</button>
+        <div class="reveal-content">
+          <strong>Wrong because:</strong> Flexible fiber-optic endoscopes contain plastic, rubber, and electronic components that <strong>cannot withstand the heat and moisture</strong> of an autoclave (121°C steam would melt/warp the instrument).<br><br>
+          <strong>Correct method:</strong> Endoscopes require <strong>High-Level Disinfection (HLD)</strong> using glutaraldehyde, OPA, or hydrogen peroxide 6%, OR <strong>ETO gas sterilization</strong> or <strong>hydrogen peroxide plasma</strong> if full sterilization is required (e.g., for sterile cavities).<br><br>
+          <strong>Critical point:</strong> The endoscope MUST be thoroughly cleaned (manually scrubbed + enzymatic cleaner) BEFORE disinfection. Biofilm and debris block the disinfectant from reaching the surface — cleaning first is not optional.
+          <div class="reveal-fa">آندوسکوپ‌های فیبر اپتیک نمی‌توانند گرمای اتوکلاو را تحمل کنند. نیاز به HLD (گلوتارآلدهید یا OPA) دارند. قبل از ضدعفونی باید کاملاً تمیز شوند — بیوفیلم مانع نفوذ ضدعفونی می‌شود.</div>
+        </div>
+      </div>
+
+      <div class="trap-box">
+        <div class="trap-text">
+          <strong>CRITICAL RULE — CLEAN BEFORE DISINFECT/STERILIZE:</strong> Organic material (blood, tissue, secretions, biofilm) blocks disinfectants and sterilants from reaching the surface. You MUST clean instruments manually with detergent and an enzymatic cleaner BEFORE any disinfection or sterilization process. This step cannot be skipped. If skipped, the sterilization is not valid even if all parameters were correct.
+        </div>
+        <div class="trap-fa">قانون مهم: قبل از ضدعفونی یا استریل‌سازی باید ابزار را با شوینده و آنزیم تمیز کرد. مواد آلی (خون، ترشح، بیوفیلم) مانع نفوذ ضدعفونی می‌شوند. این مرحله اجباری است.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── HANDWASHING ── -->
+  <div id="sterilization_handwashing" class="sub-panel" style="display:none;">
+    <div class="card card-green">
+      <h2>🧼 Hand Hygiene — The Single Most Important Infection Control Step</h2>
+      <div class="fa-sub">بهداشت دست — مهم‌ترین گام کنترل عفونت</div>
+      <div class="bi">
+        <div class="en-box">
+          <span class="lang-tag">English</span>
+          <p>Hands are the #1 way infections spread in healthcare. Proper hand hygiene is the single most effective infection control measure ever identified. The WHO and CDC agree on this.</p>
+        </div>
+        <div class="fa-box">
+          <span class="lang-tag">فارسی</span>
+          <p>دست‌ها مهم‌ترین راه انتشار عفونت در مراقبت‌های بهداشتی هستند. بهداشت صحیح دست مؤثرترین اقدام کنترل عفونتی است که تاکنون شناخته شده.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <h3>🧴 Two Types of Hand Hygiene — When to Use Which</h3>
+      <div class="g2" style="margin-top:14px;">
+        <div style="background:var(--blue-light);border-radius:var(--radius-sm);padding:18px;border:2px solid var(--blue);">
+          <h3 style="color:var(--blue-dark);margin-bottom:8px;">🖐️ Soap and Water — Handwashing</h3>
+          <p style="font-size:0.9rem;"><strong>Duration:</strong> Wet → Soap → Scrub ALL surfaces 20 seconds → Rinse → Dry with paper towel → Use towel to turn off faucet</p>
+          <p style="font-size:0.9rem;margin-top:8px;"><strong>Use WHEN:</strong></p>
+          <ul style="margin-left:18px;font-size:0.88rem;line-height:1.9;">
+            <li>Hands are visibly soiled or contaminated with blood/body fluids</li>
+            <li>Before eating or after using the restroom</li>
+            <li>After caring for a patient with C. difficile (spores)</li>
+            <li>After caring for a patient with norovirus</li>
+            <li>When exposure to Bacillus anthracis (anthrax) is suspected</li>
+          </ul>
+          <div style="font-family:var(--font-farsi);direction:rtl;font-size:0.85rem;color:var(--text-mid);margin-top:10px;border-top:1px solid var(--blue);padding-top:8px;">زمانی که دست‌ها کثیف هستند، بعد از C. diff، بعد از نوروویروس، قبل از غذا خوردن.</div>
+        </div>
+        <div style="background:var(--teal-light);border-radius:var(--radius-sm);padding:18px;border:2px solid var(--teal);">
+          <h3 style="color:var(--teal-dark);margin-bottom:8px;">🤲 Alcohol-Based Hand Sanitizer (ABHS)</h3>
+          <p style="font-size:0.9rem;"><strong>How:</strong> Apply to palm → rub all surfaces for at least 20 seconds until dry</p>
+          <p style="font-size:0.9rem;margin-top:8px;"><strong>Use WHEN:</strong></p>
+          <ul style="margin-left:18px;font-size:0.88rem;line-height:1.9;">
+            <li>Before and after every patient contact (if hands not visibly soiled)</li>
+            <li>After removing gloves</li>
+            <li>Before putting on gloves</li>
+            <li>Between different tasks on the same patient</li>
+          </ul>
+          <p style="font-size:0.88rem;margin-top:8px;color:var(--rose-dark);"><strong>⚠️ Does NOT work on:</strong> C. diff spores, norovirus, Bacillus anthracis</p>
+          <div style="font-family:var(--font-farsi);direction:rtl;font-size:0.85rem;color:var(--text-mid);margin-top:10px;border-top:1px solid var(--teal);padding-top:8px;">قبل و بعد از هر بیمار اگر دست‌ها کثیف نباشند. بعد از درآوردن دستکش. روی اسپور C. diff کار نمی‌کند.</div>
+        </div>
+      </div>
+
+      <div class="trap-box" style="margin-top:16px;">
+        <div class="trap-text">
+          <strong>THE #1 HAND HYGIENE TRAP:</strong> Students are taught "always use hand sanitizer" — but the exam will present a C. diff or norovirus scenario and the correct answer is <strong>SOAP AND WATER</strong> because alcohol-based sanitizers do NOT kill these organisms. Spores require the mechanical friction of handwashing to be physically removed.<br><br>
+          <strong>ALSO:</strong> Gloves are NOT a substitute for handwashing. Wash hands BEFORE putting gloves on AND AFTER taking them off. Gloves have microscopic holes and can contaminate hands upon removal.
+        </div>
+        <div class="trap-fa">بزرگ‌ترین تله: برای C. diff و نوروویروس باید با آب و صابون دست شست — ژل الکلی کار نمی‌کند. همچنین دستکش جایگزین شستن دست نیست.</div>
+      </div>
+
+      <div class="mini-quiz">
+        <div class="qtext">After caring for a patient with confirmed C. difficile (C. diff) infection, you should clean your hands with:</div>
+        <div class="qfa">بعد از مراقبت از بیمار با عفونت C. diff، باید دست‌هایتان را با چه چیزی تمیز کنید؟</div>
+        <div class="qopts" id="q_hand1">
+          <button class="qopt" onclick="checkQ('q_hand1',this,false,'Alcohol hand sanitizer does NOT kill C. diff spores. It is not effective here.')">A. Alcohol-based hand sanitizer</button>
+          <button class="qopt" onclick="checkQ('q_hand1',this,true,'Soap and water is required for C. diff because the spores cannot be killed by alcohol — they must be physically REMOVED by the friction of handwashing. This is a critical exam fact.')">B. Soap and water ✓</button>
+          <button class="qopt" onclick="checkQ('q_hand1',this,false,'Gloves protect you but are not a method of hand hygiene. You still need to wash hands after removing gloves.')">C. Sterile gloves are enough</button>
+          <button class="qopt" onclick="checkQ('q_hand1',this,false,'Either method is not correct — specifically, soap and water is REQUIRED for C. diff.')">D. Either method is acceptable</button>
+        </div>
+        <div class="qfb" id="q_hand1_fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PPE ── -->
+  <div id="sterilization_ppe" class="sub-panel" style="display:none;">
+    <div class="card card-teal">
+      <h2>🥼 PPE and Transmission-Based Precautions — Full Detail</h2>
+      <div class="fa-sub">تجهیزات حفاظت فردی و احتیاط‌های انتقال — جزئیات کامل</div>
+
+      <div class="hl-teal">
+        <strong>Standard Precautions</strong> apply to ALL patients, ALL the time — regardless of diagnosis. They are based on the assumption that ALL blood, body fluids, secretions, excretions, non-intact skin, and mucous membranes may contain infectious agents.<br>
+        <span style="font-family:var(--font-farsi);direction:rtl;display:block;margin-top:6px;font-size:0.88rem;">احتیاط‌های استاندارد برای همه بیماران، همیشه اعمال می‌شود — بدون توجه به تشخیص. فرض بر این است که همه خون، مایعات بدن، و پوست آسیب‌دیده ممکن است عفونی باشند.</span>
+      </div>
+
+      <div style="overflow-x:auto;margin-top:18px;">
+        <table class="data-table">
+          <thead><tr class="th-teal"><th>Precaution Type · نوع احتیاط</th><th>Transmission Route · مسیر انتقال</th><th>PPE Required · PPE مورد نیاز</th><th>Room · اتاق</th><th>Examples · مثال‌ها</th><th>فارسی</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>🌬️ Airborne Precautions</strong></td>
+              <td>Tiny droplet nuclei that stay suspended in air for long periods (can travel far)</td>
+              <td><strong>N95 respirator</strong> (fitted/tested) — surgical mask is NOT enough. Gown + gloves.</td>
+              <td><strong>Negative pressure room</strong> (air flows IN, not out). Door must stay CLOSED.</td>
+              <td>TB, Measles (Rubeola), Varicella (chickenpox), Disseminated Zoster</td>
+              <td class="fa-cell">ذرات معلق در هوا برای مدت طولانی. نیاز به ماسک N95 و اتاق فشار منفی. سل، سرخک، آبله مرغان.</td>
+            </tr>
+            <tr>
+              <td><strong>💧 Droplet Precautions</strong></td>
+              <td>Large droplets that travel 3–6 feet and fall quickly (do NOT stay in air)</td>
+              <td><strong>Surgical mask</strong> + gloves + gown when within 3–6 feet</td>
+              <td>Private room preferred. Door can stay open.</td>
+              <td>Influenza, Pertussis (whooping cough), Meningitis (bacterial), Mumps, Rubella, COVID-19 (also adds airborne for aerosol procedures)</td>
+              <td class="fa-cell">قطرات بزرگ که ۳-۶ فوت سفر می‌کنند. ماسک جراحی کافی است. آنفلوانزا، سیاه سرفه، مننژیت.</td>
+            </tr>
+            <tr>
+              <td><strong>🤝 Contact Precautions</strong></td>
+              <td>Direct or indirect contact with patient or environment</td>
+              <td><strong>Gown + gloves</strong> upon entering room</td>
+              <td>Private room preferred. Dedicated equipment (stethoscope, BP cuff stays in room).</td>
+              <td>MRSA, VRE, C. difficile, Scabies, Wound infections, RSV</td>
+              <td class="fa-cell">تماس مستقیم یا غیرمستقیم. گان و دستکش. MRSA، VRE، C. diff، گَر.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trap-box" style="margin-top:18px;">
+        <div class="trap-text">
+          <strong>TRAP — N95 vs Surgical Mask:</strong> For AIRBORNE diseases (TB, measles, varicella), a surgical mask is INSUFFICIENT. You NEED an N95 respirator — a fitted mask that filters ≥95% of airborne particles. The exam will try to trick you by making a surgical mask sound acceptable for TB — it is NOT.<br><br>
+          <strong>TRAP — Negative Pressure:</strong> Airborne precaution rooms need NEGATIVE pressure — air is sucked INTO the room and exhausted outside, preventing contaminated air from flowing into the hallway. This is the opposite of positive pressure rooms (used for immunocompromised patients — air flows OUT to keep pathogens away).<br><br>
+          <strong>TRAP — C. diff requires CONTACT precautions AND soap-and-water handwashing.</strong> Alcohol sanitizer does not work on C. diff spores.
+        </div>
+        <div class="trap-fa">
+          تله: برای سل و آبله مرغان، ماسک جراحی کافی نیست — N95 لازم است.<br>
+          تله: اتاق‌های احتیاط هوایی نیاز به فشار منفی دارند.<br>
+          تله: C. diff به احتیاط تماسی و آب‌وصابون هر دو نیاز دارد.
+        </div>
+      </div>
+
+      <div class="mini-quiz">
+        <div class="qtext">A patient is admitted with suspected active tuberculosis (TB). What PPE must you wear when entering the room?</div>
+        <div class="qfa">بیمار با مشکوک بودن به سل فعال بستری شده. هنگام ورود به اتاق چه PPE باید بپوشید؟</div>
+        <div class="qopts" id="q_ppe1">
+          <button class="qopt" onclick="checkQ('q_ppe1',this,false,'A surgical mask does not filter small airborne particles. TB requires an N95 respirator.')">A. Surgical mask only</button>
+          <button class="qopt" onclick="checkQ('q_ppe1',this,false,'Gloves alone are not appropriate for TB — airborne protection is the priority.')">B. Gloves and gown only</button>
+          <button class="qopt" onclick="checkQ('q_ppe1',this,true,'TB = airborne precautions. You need a properly fitted N95 respirator (not a surgical mask), plus gown and gloves. The room must also be negative pressure with the door kept closed.')">C. Fitted N95 respirator + gown + gloves + negative pressure room ✓</button>
+          <button class="qopt" onclick="checkQ('q_ppe1',this,false,'Surgical mask is insufficient for airborne diseases. N95 is required.')">D. Surgical mask + gown + gloves</button>
+        </div>
+        <div class="qfb" id="q_ppe1_fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SPAULDING ── -->
+  <div id="sterilization_spaulding" class="sub-panel" style="display:none;">
+    <div class="card card-gold">
+      <h2>🏷️ Spaulding Classification System — Complete</h2>
+      <div class="fa-sub">سیستم طبقه‌بندی اسپالدینگ — کامل</div>
+      <div class="bi">
+        <div class="en-box">
+          <span class="lang-tag">English</span>
+          <p>The Spaulding Classification (developed by Dr. Earle Spaulding in 1968) is the system used to determine what level of processing medical devices require. <strong>The CCMA exam tests this heavily.</strong></p>
+        </div>
+        <div class="fa-box">
+          <span class="lang-tag">فارسی</span>
+          <p>سیستم طبقه‌بندی اسپالدینگ (توسط دکتر اِرل اسپالدینگ در ۱۹۶۸) تعیین می‌کند که هر وسیله پزشکی چه سطحی از پردازش نیاز دارد. این موضوع در آزمون CCMA زیاد مطرح می‌شود.</p>
+        </div>
+      </div>
+
+      <div style="overflow-x:auto;margin-top:16px;">
+        <table class="data-table">
+          <thead><tr class="th-navy"><th>Category · دسته‌بندی</th><th>Definition · تعریف</th><th>Required Processing · پردازش لازم</th><th>Examples · مثال‌ها</th><th>فارسی</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>⭐ CRITICAL<br>بحرانی</strong></td>
+              <td>Enters sterile tissue, bloodstream, or vascular system</td>
+              <td><strong>STERILIZATION required</strong> (autoclave, ETO, etc.)</td>
+              <td>Surgical instruments, needles, biopsy forceps, implants, IV catheters, urinary catheters (if entering bladder directly)</td>
+              <td class="fa-cell">وارد بافت استریل یا جریان خون می‌شود. استریل‌سازی الزامی. سوزن، ابزار جراحی، کاتتر IV.</td>
+            </tr>
+            <tr>
+              <td><strong>🟡 SEMI-CRITICAL<br>نیمه‌بحرانی</strong></td>
+              <td>Contacts mucous membranes or non-intact skin</td>
+              <td><strong>HIGH-LEVEL DISINFECTION minimum</strong> (glutaraldehyde, OPA, H₂O₂)</td>
+              <td>Endoscopes, laryngoscope blades, vaginal specula, respiratory therapy equipment, thermometers (rectal), colonoscopes</td>
+              <td class="fa-cell">با غشاهای مخاطی یا پوست آسیب‌دیده تماس دارد. حداقل HLD. آندوسکوپ، تیغه لارنگوسکوپ، اسپکیولوم واژینال.</td>
+            </tr>
+            <tr>
+              <td><strong>🟢 NON-CRITICAL<br>غیربحرانی</strong></td>
+              <td>Contacts only intact (unbroken) skin</td>
+              <td><strong>LOW to INTERMEDIATE disinfection</strong></td>
+              <td>Stethoscopes, blood pressure cuffs, thermometers (oral/axillary/tympanic), exam tables, IV poles, bedside tables, blood glucose meters, EKG machines</td>
+              <td class="fa-cell">فقط با پوست سالم تماس دارد. ضدعفونی سطح پایین تا متوسط. گوشی، فشارسنج، میز معاینه.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="crit-box" style="margin-top:18px;">
+        <div class="crit-q">A laryngoscope blade is used to visualize a patient's airway (contacts the mucous membranes of the throat). After use, your coworker wipes it with an alcohol wipe and puts it back. Is this correct? Explain exactly what is wrong and what MUST be done.</div>
+        <div class="crit-fa">تیغه لارنگوسکوپ با غشاهای مخاطی گلو تماس دارد. همکار آن را با دستمال الکلی پاک می‌کند. آیا درست است؟</div>
+        <button class="reveal-btn" onclick="toggleReveal(this)">🔍 See Answer</button>
+        <div class="reveal-content">
+          <strong>❌ COMPLETELY WRONG</strong><br><br>
+          <strong>Why:</strong> A laryngoscope blade contacts mucous membranes → it is a <strong>semi-critical item</strong> → requires <strong>High-Level Disinfection (HLD) at minimum</strong>.<br><br>
+          An alcohol wipe provides only low-to-intermediate disinfection. It does NOT achieve HLD. It would not kill TB, many non-enveloped viruses, or fungi — all of which could be present in the oropharynx.<br><br>
+          <strong>What MUST be done:</strong><br>
+          1. <strong>Clean first</strong>: manually scrub the blade with detergent and enzymatic cleaner to remove all organic matter<br>
+          2. <strong>HLD</strong>: immerse in glutaraldehyde (Cidex) or OPA for the required contact time, OR use an automated endoscope reprocessor (AER)<br>
+          3. <strong>Rinse</strong> thoroughly with sterile water<br>
+          4. <strong>Dry</strong> and store properly<br><br>
+          Some facilities sterilize laryngoscope blades (full sterilization) — this is even better than HLD.
+          <div class="reveal-fa">دستمال الکلی فقط ضدعفونی پایین/متوسط می‌کند. تیغه لارنگوسکوپ نیمه‌بحرانی است و نیاز به HLD دارد. ابتدا تمیز، سپس گلوتارآلدهید یا OPA، سپس آبکشی با آب استریل.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================================================================
+     SECTION B: LEGAL & ETHICS
+================================================================ -->
+<section id="legal" class="section-panel">
+  <div class="seg-hero blue-hero">
+    <span class="hero-icon">⚖️</span>
+    <div class="hero-title">Legal & Ethical Principles — Complete</div>
+    <div class="hero-fa">اصول حقوقی و اخلاقی — کامل</div>
+    <p class="hero-desc">Every concept explained deeply, with the traps, the critical scenarios, and what the CCMA will actually test.</p>
+  </div>
+
+  <div class="mini-nav">
+    <button class="mnav bl active" onclick="showSub('legal','consent',this)">📝 Consent</button>
+    <button class="mnav bl" onclick="showSub('legal','hipaa',this)">🔒 HIPAA Deep Dive</button>
+    <button class="mnav bl" onclick="showSub('legal','scope',this)">📏 Scope of Practice</button>
+    <button class="mnav bl" onclick="showSub('legal','rights',this)">👤 Patient Rights</button>
+    <button class="mnav bl" onclick="showSub('legal','abuse',this)">🚨 Mandatory Reporting</button>
+    <button class="mnav bl" onclick="showSub('legal','liability',this)">⚖️ Liability & Ethics</button>
+    <button class="mnav bl" onclick="showSub('legal','docLegal',this)">📋 Documentation & Law</button>
+  </div>
+
+  <!-- ── CONSENT ── -->
+  <div id="legal_consent" class="sub-panel">
+    <div class="card card-blue">
+      <h2>📝 Informed Consent — Every Detail</h2>
+      <div class="fa-sub">رضایت آگاهانه — همه جزئیات</div>
+      <div class="bi">
+        <div class="en-box">
+          <span class="lang-tag">English</span>
+          <p><strong>Informed consent</strong> is a patient's voluntary agreement to a treatment or procedure after being given all relevant information. It is a legal requirement AND an ethical duty. Without it, performing a procedure is assault — even if you help the patient.</p>
+        </div>
+        <div class="fa-box">
+          <span class="lang-tag">فارسی</span>
+          <p><strong>رضایت آگاهانه</strong> توافق داوطلبانه بیمار برای درمان یا روش بعد از دریافت تمام اطلاعات مربوطه است. این یک الزام قانونی و وظیفه اخلاقی است. بدون آن، انجام روش تجاوز محسوب می‌شود — حتی اگر به بیمار کمک کنید.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <h3>✅ The 4 Required Elements of Valid Informed Consent</h3>
+      <ul class="steps" style="margin-top:12px;">
+        <li><div class="snum b">1</div><div class="sbody"><div class="sen">DISCLOSURE — Patient receives complete information</div><div class="sfa">افشا — بیمار اطلاعات کامل دریافت می‌کند</div><div class="sdesc">Must include: diagnosis, proposed procedure, all material risks and benefits, alternatives (including no treatment), and expected outcome. The provider (MD, NP, PA) — NOT the MA — is responsible for this explanation. The MA can witness the signature and answer simple questions, but must refer complex questions back to the provider.</div></div></li>
+        <li><div class="snum b">2</div><div class="sbody"><div class="sen">COMPETENCE — Patient has legal and mental capacity</div><div class="sfa">ظرفیت — بیمار ظرفیت قانونی و ذهنی دارد</div><div class="sdesc">Patient must be mentally capable of understanding information and making a decision. This means not under the influence of substances affecting judgment, not in an acute psychotic state, and cognitively intact. Age of majority (18 in most states) applies for legal capacity.</div></div></li>
+        <li><div class="snum b">3</div><div class="sbody"><div class="sen">COMPREHENSION — Patient actually understands</div><div class="sfa">درک — بیمار واقعاً می‌فهمد</div><div class="sdesc">Patient must demonstrate understanding — not just say "yes." Use teach-back: "Can you tell me in your own words what we discussed?" Provide interpreter if patient speaks limited English. Use plain language — no medical jargon without explanation.</div></div></li>
+        <li><div class="snum b">4</div><div class="sbody"><div class="sen">VOLUNTARINESS — Consent is freely given, not coerced</div><div class="sfa">داوطلبانه — رضایت آزادانه داده شده، نه تحت فشار</div><div class="sdesc">Patient must have the right to refuse without punishment or negative consequences to their care. A patient who says "I only agreed because the doctor made me feel I had no choice" has NOT given valid consent.</div></div></li>
+      </ul>
+
+      <div class="divider"></div>
+      <h3>📋 Types of Consent</h3>
+      <div style="overflow-x:auto;">
+        <table class="data-table">
+          <thead><tr class="th-blue"><th>Type · نوع</th><th>Definition</th><th>Example</th><th>فارسی</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Expressed / Explicit Consent</strong></td>
+              <td>Clearly stated — verbally or in writing. Written consent required for surgery, invasive procedures, research, blood transfusions.</td>
+              <td>Patient signs a surgical consent form</td>
+              <td class="fa-cell">رضایت بیان‌شده: کتبی یا شفاهی. برای جراحی باید کتبی باشد.</td>
+            </tr>
+            <tr>
+              <td><strong>Implied Consent</strong></td>
+              <td>Actions imply agreement without explicit statement. Cannot use for invasive procedures or in non-emergencies.</td>
+              <td>Patient rolls up sleeve for blood pressure → implies consent for BP check. A patient in a car accident unconscious → emergency treatment implied.</td>
+              <td class="fa-cell">رضایت ضمنی: اعمال نشان‌دهنده توافق است. برای روش‌های تهاجمی قابل قبول نیست.</td>
+            </tr>
+            <tr>
+              <td><strong>Informed Consent (Written)</strong></td>
+              <td>Full disclosure + voluntary agreement + signature. Required for surgery, anesthesia, invasive procedures, clinical trials, HIV testing in some states.</td>
+              <td>Patient reads and signs a detailed consent for colonoscopy</td>
+              <td class="fa-cell">رضایت آگاهانه کتبی: برای جراحی، بیهوشی، آزمایشگاه‌های بالینی.</td>
+            </tr>
+            <tr>
+              <td><strong>Emancipated Minor</strong></td>
+              <td>A minor (under 18) who is legally considered an adult and can consent for themselves.</td>
+              <td>Married teens, military service members, minors who are parents, financially independent minors (state law varies)</td>
+              <td class="fa-cell">نوجوان رها شده: از نظر قانونی بزرگسال است و می‌تواند برای خودش رضایت دهد.</td>
+            </tr>
+            <tr>
+              <td><strong>Minor Consent Exceptions</strong></td>
+              <td>Even non-emancipated minors can consent for themselves for specific services in most states.</td>
+              <td>STIs/STDs, pregnancy, contraception, substance abuse treatment, mental health treatment (age varies by state)</td>
+              <td class="fa-cell">استثناهای نوجوان: برای STI، بارداری، ضدبارداری، سوءمصرف مواد — اغلب بدون نیاز به والدین.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trap-box">
+        <div class="trap-text">
+          <strong>TRAP #1 — Who Obtains Consent:</strong> It is the PROVIDER's (physician, NP, PA) legal responsibility to explain the procedure and obtain informed consent. The MA's role is to witness the signature, give the patient the form, and ensure the patient had the opportunity to ask questions. An MA should NEVER explain a complex procedure in a way that substitutes for the provider's explanation.<br><br>
+          <strong>TRAP #2 — Patient Withdraws Consent:</strong> A patient can withdraw consent at any time, even during a procedure. If a patient says "stop," you MUST stop immediately. Continuing is assault.<br><br>
+          <strong>TRAP #3 — Emergency Exception:</strong> If a patient is unconscious and in an emergency, treatment can be provided under implied consent — EXCEPT if there is a known advance directive refusing that treatment (like a DNR).
+        </div>
+        <div class="trap-fa">تله ۱: MA رضایت را توضیح نمی‌دهد — فقط شاهد امضاست. پزشک مسئول است.<br>تله ۲: بیمار می‌تواند در هر زمان رضایت را پس بگیرد — حتی حین روش. باید بلافاصله متوقف شود.</div>
+      </div>
+
+      <div class="mini-quiz">
+        <div class="qtext">A patient signed an informed consent form for surgery last week. The morning of surgery, they say, "I changed my mind — I don't want to proceed." What should happen?</div>
+        <div class="qfa">بیمار هفته پیش رضایت‌نامه جراحی را امضا کرد. صبح روز جراحی می‌گوید نمی‌خواهد ادامه دهد. چه باید بشود؟</div>
+        <div class="qopts" id="q_consent1">
+          <button class="qopt" onclick="checkQ('q_consent1',this,false,'The consent form was signed but consent is not irrevocable. A patient has the right to withdraw consent at any time.')">A. Proceed with surgery — they already signed the form</button>
+          <button class="qopt" onclick="checkQ('q_consent1',this,false,'It is not up to the MA to decide whether to proceed. The patient\'s refusal must be respected and the surgeon notified immediately.')">B. Tell the patient they are making a mistake and try to convince them</button>
+          <button class="qopt" onclick="checkQ('q_consent1',this,true,'A patient has the absolute right to withdraw consent at ANY time, even after signing. The surgery must not proceed. Notify the provider immediately, document the patient\'s refusal, and respect their autonomy.')">C. Stop. Notify the provider immediately. Document the refusal. Respect the patient's right to withdraw consent. ✓</button>
+          <button class="qopt" onclick="checkQ('q_consent1',this,false,'The anesthesiologist alone cannot override a patient\'s withdrawal of consent.')">D. Consult with the anesthesiologist to decide</button>
+        </div>
+        <div class="qfb" id="q_consent1_fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── HIPAA DEEP DIVE ── -->
+  <div id="legal_hipaa" class="sub-panel" style="display:none;">
+    <div class="card card-purple">
+      <h2>🔒 HIPAA — Deep Dive</h2>
+      <div class="fa-sub">HIPAA — آموزش عمیق</div>
+      <div class="bi">
+        <div class="en-box">
+          <span class="lang-tag">English</span>
+          <p><strong>HIPAA = Health Insurance Portability and Accountability Act (1996).</strong> It is a federal law with two major rules that affect medical assistants every single day.</p>
+        </div>
+        <div class="fa-box">
+          <span class="lang-tag">فارسی</span>
+          <p><strong>HIPAA = قانون قابلیت انتقال و پاسخگویی بیمه سلامت (۱۹۹۶).</strong> این یک قانون فدرال با دو قانون اصلی است که هر روز دستیاران پزشکی را تحت تأثیر قرار می‌دهد.</p>
+        </div>
+      </div>
+
+      <div class="hl-purple" style="margin:14px 0;">
+        <strong>PHI = Protected Health Information · اطلاعات سلامت محفوظ</strong><br>
+        Any information that can identify a patient AND relates to their health, healthcare, or payment for care.<br>
+        Includes: name, address, DOB, SSN, phone, email, medical record number, photos, diagnosis, lab results, insurance info, dates of service — anything linked to a specific person.<br>
+        <span style="font-family:var(--font-farsi);direction:rtl;display:block;margin-top:6px;font-size:0.87rem;">PHI = هر اطلاعاتی که بتواند بیمار را شناسایی کند و به سلامت، مراقبت بهداشتی، یا پرداخت آن مربوط باشد.</span>
+      </div>
+
+      <div style="overflow-x:auto;margin-top:16px;">
+        <table class="data-table">
+          <thead><tr class="th-purple"><th>Situation · موقعیت</th><th>HIPAA Status</th><th>فارسی</th></tr></thead>
+          <tbody>
+            <tr><td>Sharing patient records with another treating provider (the specialist they were referred to)</td><td><span style="color:var(--green-dark);font-weight:700;">✅ ALLOWED — Treatment purpose (TPO)</span></td><td class="fa-cell">اشتراک‌گذاری با پزشک دیگری که بیمار را درمان می‌کند — مجاز است (هدف درمان).</td></tr>
+            <tr><td>Sending records to the patient's insurance company for billing</td><td><span style="color:var(--green-dark);font-weight:700;">✅ ALLOWED — Payment purpose (TPO)</span></td><td class="fa-cell">ارسال به بیمه برای صورتحساب — مجاز است (هدف پرداخت).</td></tr>
+            <tr><td>Discussing the patient's diagnosis with their adult child without patient permission</td><td><span style="color:var(--rose-dark);font-weight:700;">❌ VIOLATION — No authorization</span></td><td class="fa-cell">بحث تشخیص با فرزند بدون اجازه بیمار — نقض HIPAA.</td></tr>
+            <tr><td>Posting on social media about an "interesting case" (no name, but details could identify them)</td><td><span style="color:var(--rose-dark);font-weight:700;">❌ VIOLATION — Still identifiable</span></td><td class="fa-cell">پست شبکه اجتماعی حتی بدون نام — اگر قابل شناسایی باشد، نقض است.</td></tr>
+            <tr><td>Reporting a patient's gunshot wound to police (required by state law)</td><td><span style="color:var(--green-dark);font-weight:700;">✅ ALLOWED — Required by law exception</span></td><td class="fa-cell">گزارش زخم گلوله به پلیس — مجاز (استثنای قانونی).</td></tr>
+            <tr><td>Reporting a patient with tuberculosis to the public health department</td><td><span style="color:var(--green-dark);font-weight:700;">✅ ALLOWED — Public health exception</span></td><td class="fa-cell">گزارش TB به بهداشت عمومی — مجاز (استثنای سلامت عمومی).</td></tr>
+            <tr><td>Leaving voicemail with detailed diagnosis on patient's home phone</td><td><span style="color:var(--rose-dark);font-weight:700;">❌ POTENTIAL VIOLATION — Others may hear</span></td><td class="fa-cell">پیام صوتی با جزئیات تشخیص — خطر نقض (دیگران ممکن است بشنوند).</td></tr>
+            <tr><td>Looking up records of a patient who is also your neighbor (out of curiosity)</td><td><span style="color:var(--rose-dark);font-weight:700;">❌ VIOLATION — No legitimate purpose</span></td><td class="fa-cell">نگاه کردن به پرونده همسایه از روی کنجکاوی — نقض.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trap-box">
+        <div class="trap-text">
+          <strong>TRAP — Minimum Necessary Rule:</strong> Even when sharing PHI is allowed, you should only share the MINIMUM information necessary for the purpose. Don't send a patient's entire medical history to a specialist who only needs their cardiac records.<br><br>
+          <strong>TRAP — The Minimum Age for Consent:</strong> For minors who can consent on their own (STIs, pregnancy, substance abuse), parents generally CANNOT receive their records without the minor's permission. The minor's privacy is protected even from parents.<br><br>
+          <strong>TRAP — De-identified data:</strong> Data from which all 18 HIPAA identifiers have been removed is NOT PHI and is not covered by HIPAA. But if even ONE identifier remains and could re-identify the person, it is still PHI.
+        </div>
+        <div class="trap-fa">قانون حداقل ضروری: فقط حداقل اطلاعات لازم را به اشتراک بگذارید. اطلاعات شناسایی‌زدایی‌شده (بدون ۱۸ شناسه HIPAA) PHI نیست.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCOPE OF PRACTICE ── -->
+  <div id="legal_scope" class="sub-panel" style="display:none;">
+    <div class="card card-green">
+      <h2>📏 Scope of Practice — Know Your Boundaries</h2>
+      <div class="fa-sub">حدود اختیارات — مرزهایتان را بشناسید</div>
+      <div class="bi">
+        <div class="en-box">
+          <span class="lang-tag">English</span>
+          <p><strong>Scope of practice</strong> defines the procedures, actions, and processes a healthcare worker is legally permitted to perform based on their specific education, training, license, and state law. Working OUTSIDE your scope is illegal and dangerous.</p>
+        </div>
+        <div class="fa-box">
+          <span class="lang-tag">فارسی</span>
+          <p><strong>حدود اختیارات</strong> مشخص می‌کند که یک کارمند مراقبت بهداشتی بر اساس تحصیلات، آموزش، مجوز، و قانون ایالتی چه کارهایی را به طور قانونی مجاز است انجام دهد. کار خارج از حدود اختیارات غیرقانونی و خطرناک است.</p>
+        </div>
+      </div>
+
+      <div class="do-dont" style="margin-top:16px;">
+        <div class="do-box">
+          <div class="dbox-title">✅ Within MA Scope · داخل حدود MA</div>
+          <div class="ditem">Measure vital signs<div class="ditem-fa">اندازه‌گیری علائم حیاتی</div></div>
+          <div class="ditem">Perform venipuncture (blood draw)<div class="ditem-fa">خون‌گیری</div></div>
+          <div class="ditem">Administer injections per provider order<div class="ditem-fa">تزریق طبق دستور پزشک</div></div>
+          <div class="ditem">Perform ECG/EKG<div class="ditem-fa">نوار قلب</div></div>
+          <div class="ditem">Collect specimens<div class="ditem-fa">جمع‌آوری نمونه</div></div>
+          <div class="ditem">Document patient information<div class="ditem-fa">مستندسازی اطلاعات بیمار</div></div>
+          <div class="ditem">Educate patients on instructions given by provider<div class="ditem-fa">آموزش دستورالعمل‌های پزشک به بیمار</div></div>
+          <div class="ditem">Schedule appointments, handle billing codes<div class="ditem-fa">زمانبندی، کدهای صورتحساب</div></div>
+        </div>
+        <div class="dont-box">
+          <div class="dbox-title">❌ Outside MA Scope · خارج از حدود MA</div>
+          <div class="ditem">Diagnose a patient's condition<div class="ditem-fa">تشخیص بیماری</div></div>
+          <div class="ditem">Prescribe medications or treatments<div class="ditem-fa">تجویز دارو یا درمان</div></div>
+          <div class="ditem">Interpret lab results or imaging to patient<div class="ditem-fa">تفسیر نتایج آزمایش برای بیمار</div></div>
+          <div class="ditem">Perform procedures not ordered by provider<div class="ditem-fa">روش‌هایی که پزشک دستور نداده</div></div>
+          <div class="ditem">Give medical advice beyond what provider directed<div class="ditem-fa">مشاوره پزشکی فراتر از دستور پزشک</div></div>
+          <div class="ditem">Perform invasive procedures without training or order<div class="ditem-fa">روش‌های تهاجمی بدون آموزش یا دستور</div></div>
+        </div>
+      </div>
+
+      <div class="trap-box">
+        <div class="trap-text">
+          <strong>TRAP — "The patient asked me directly":</strong> If a patient asks you directly about their diagnosis, test results, or treatment options, the correct answer is ALWAYS to refer them to the provider. Never tell a patient their diagnosis, never interpret results to them, even if you think you know. Say: "That's a great question for the doctor — let me get them for you."<br><br>
+          <strong>TRAP — State-by-state differences:</strong> MA scope of practice varies significantly by state. Some states allow MAs to perform IV insertions; others do not. The exam tests the GENERAL national standards. When in doubt on the exam: if it requires clinical judgment, interpretation, or independent diagnosis → outside MA scope.
+        </div>
+        <div class="trap-fa">تله: اگر بیمار مستقیم درباره تشخیص یا نتیجه آزمایش بپرسد، همیشه به پزشک ارجاع دهید. هرگز خودتان تفسیر نکنید. حدود اختیارات در هر ایالت متفاوت است.</div>
+      </div>
+
+      <div class="mini-quiz">
+        <div class="qtext">A patient hands you their lab results and says "What does this mean? Is this number bad?" What is the BEST response?</div>
+        <div class="qfa">بیمار نتایج آزمایش را می‌دهد و می‌پرسد «این یعنی چه؟ این عدد بد است؟» بهترین پاسخ چیست؟</div>
+        <div class="qopts" id="q_scope1">
+          <button class="qopt" onclick="checkQ('q_scope1',this,false,'Telling the patient the results are "abnormal" or "bad" is outside MA scope. This constitutes interpreting/diagnosing and could cause harm or panic.')">A. "Yes, that number looks abnormal to me — you should be worried."</button>
+          <button class="qopt" onclick="checkQ('q_scope1',this,false,'Dismissing the patient is unprofessional and doesn\'t help them.')">B. "I can\'t help you with that." (and walk away)</button>
+          <button class="qopt" onclick="checkQ('q_scope1',this,true,'Interpreting lab results is outside MA scope. The correct action is to acknowledge the patient\'s concern, let them know the provider will explain, and ensure the provider sees them promptly.')">C. "I understand your concern. Interpreting those results is something the doctor needs to do with you — let me make sure the doctor reviews these with you today." ✓</button>
+          <button class="qopt" onclick="checkQ('q_scope1',this,false,'Giving the normal range and implying the result is okay IS interpreting results — still outside scope.')">D. "The normal range is X — yours is close to that, so it\'s probably fine."</button>
+        </div>
+        <div class="qfb" id="q_scope1_fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MANDATORY REPORTING ── -->
+  <div id="legal_abuse" class="sub-panel" style="display:none;">
+    <div class="card card-red">
+      <h2>🚨 Mandatory Reporting — What You Are Required by Law to Report</h2>
+      <div class="fa-sub">گزارش‌دهی اجباری — آنچه قانون شما را ملزم به گزارش می‌کند</div>
+      <div class="bi">
+        <div class="en-box">
+          <span class="lang-tag">English</span>
+          <p>As a healthcare professional, you are a <strong>mandated reporter</strong>. The law requires you to report certain situations to government authorities — even if the patient asks you not to. Failure to report is a crime.</p>
+        </div>
+        <div class="fa-box">
+          <span class="lang-tag">فارسی</span>
+          <p>به عنوان یک متخصص مراقبت بهداشتی، شما یک <strong>گزارش‌دهنده اجباری</strong> هستید. قانون شما را ملزم می‌کند موقعیت‌های خاصی را به مقامات دولتی گزارش دهید — حتی اگر بیمار از شما بخواهد نگفتید. عدم گزارش جرم است.</p>
+        </div>
+      </div>
+
+      <div style="overflow-x:auto;margin-top:16px;">
+        <table class="data-table">
+          <thead><tr class="th-rose"><th>Must Report · باید گزارش دهید</th><th>Who to Report To</th><th>Notes</th><th>فارسی</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Child abuse or neglect</strong> (suspected)</td><td>Child Protective Services (CPS)</td><td>You do NOT need proof — reasonable suspicion is enough. The investigation is CPS's job, not yours. Never accuse the parent directly.</td><td class="fa-cell">سوء رفتار با کودک (مشکوک) → CPS. فقط شک معقول کافی است.</td></tr>
+            <tr><td><strong>Elder abuse or neglect</strong></td><td>Adult Protective Services (APS)</td><td>Includes physical, emotional, financial exploitation, and neglect of adults 65+ or dependent adults</td><td class="fa-cell">سوء رفتار با سالمند → APS. شامل: جسمی، عاطفی، مالی، غفلت.</td></tr>
+            <tr><td><strong>Domestic violence</strong></td><td>Varies by state (police, DV hotline, mandatory report in some states)</td><td>Some states require mandatory reporting of suspected domestic violence. Always follow your facility's policy. Offer resources regardless.</td><td class="fa-cell">خشونت خانگی → بسته به ایالت. همیشه منابع کمکی ارائه دهید.</td></tr>
+            <tr><td><strong>Gunshot wounds / Stab wounds</strong></td><td>Law enforcement (police)</td><td>ALL states require reporting of gunshot wounds. Many require knife wounds too. This is required regardless of the patient's consent.</td><td class="fa-cell">زخم گلوله / چاقو → پلیس. همه ایالت‌ها الزامی می‌کنند.</td></tr>
+            <tr><td><strong>Communicable/Reportable diseases</strong></td><td>Local or state public health department</td><td>Includes: TB, HIV (in some states), STIs (gonorrhea, chlamydia, syphilis), measles, hepatitis A/B, food poisoning outbreaks, COVID-19, etc.</td><td class="fa-cell">بیماری‌های واگیر → بهداشت عمومی. TB، HIV، STI‌ها، سرخک، هپاتیت.</td></tr>
+            <tr><td><strong>Suspected patient deaths from unnatural causes</strong></td><td>Medical examiner / coroner / police</td><td>Includes: homicide, suicide, accidents, suspicious circumstances</td><td class="fa-cell">مرگ‌های غیرطبیعی مشکوک → پزشک قانونی / پلیس.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trap-box">
+        <div class="trap-text">
+          <strong>TRAP — Patient Confidentiality vs Mandatory Reporting:</strong> Students think HIPAA protects all information. It does NOT protect mandatory reports. Mandatory reporting OVERRIDES patient confidentiality. If you see signs of child abuse, you MUST report — even if the patient (or the abuser present in the room) begs you not to. HIPAA specifically has exceptions for mandatory reporting requirements.<br><br>
+          <strong>TRAP — Suspected is Enough:</strong> You do NOT need to confirm or prove abuse before reporting. Mandatory reporters are required to report SUSPICION. You are protected by law from liability if you report in good faith, even if the investigation finds nothing. You are NOT protected if you fail to report and the abuse continues.<br><br>
+          <strong>TRAP — Who You Report To:</strong> You report to the appropriate authority (CPS, APS, police, health department) — NOT directly to the alleged abuser. Never confront the suspected abuser.
+        </div>
+        <div class="trap-fa">تله: گزارش اجباری بر محرمانگی HIPAA مقدم است. فقط شک معقول کافی است — نیاز به اثبات ندارید. هرگز با متهم به سوء رفتار روبرو نشوید.</div>
+      </div>
+
+      <div class="crit-box">
+        <div class="crit-q">A mother brings in her 6-year-old with a burn on his hand. She says "He touched the stove." But the burn pattern is circular and appears consistent with a cigarette burn. The child is quiet and avoids eye contact. The mother says, "Please don't call anyone — we're good parents." What do you do, step by step?</div>
+        <div class="crit-fa">مادری کودک ۶ ساله با سوختگی دست آورده. می‌گوید «به اجاق لمس کرد.» اما سوختگی دایره‌ای و شبیه سیگار است. مادر می‌گوید «کسی را خبر نکنید.» چه می‌کنید؟</div>
+        <button class="reveal-btn" onclick="toggleReveal(this)">🔍 See Full Answer</button>
+        <div class="reveal-content">
+          <strong>Step 1:</strong> Stay calm. Do not accuse the mother. Continue caring for the child professionally.<br><br>
+          <strong>Step 2:</strong> Document your objective observations exactly: "Circular burn approximately 1 cm in diameter on dorsum of left hand. Child avoids eye contact. Child is quiet and does not speak." Do NOT write opinions — only what you observe.<br><br>
+          <strong>Step 3:</strong> Report your concern to the provider (physician/NP/PA) immediately. They need to know before the family leaves.<br><br>
+          <strong>Step 4:</strong> The provider and/or you (as a mandated reporter) MUST report your reasonable suspicion to Child Protective Services (CPS). Do this regardless of the mother's request.<br><br>
+          <strong>Step 5:</strong> Do NOT tell the mother you are making the report. Do NOT accuse her. Continue to treat her and the child with professionalism and respect.<br><br>
+          <strong>Step 6:</strong> You are legally protected for reporting in good faith. You are NOT protected for failing to report.<br><br>
+          <strong>What NOT to do:</strong> Do not say "we have to call CPS." Do not confront the parent. Do not promise confidentiality. Do not delay the report.
+          <div class="reveal-fa">آرام باشید. اتهام نزنید. یافته‌های عینی را مستند کنید. به پزشک گزارش دهید. به CPS گزارش دهید — بدون اطلاع مادر. شما از نظر قانونی محافظت می‌شوید اگر با حسن نیت گزارش دهید.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── LIABILITY & ETHICS ── -->
+  <div id="legal_liability" class="sub-panel" style="display:none;">
+    <div class="card card-navy">
+      <h2>⚖️ Liability, Negligence, and Ethical Principles</h2>
+      <div class="fa-sub">مسئولیت، سهل‌انگاری، و اصول اخلاقی</div>
+
+      <div style="overflow-x:auto;">
+        <table class="data-table">
+          <thead><tr class="th-navy"><th>Term · اصطلاح</th><th>Definition · تعریف</th><th>Example · مثال</th><th>فارسی</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Negligence</strong></td><td>Failure to provide the standard of care a reasonably prudent professional would provide, resulting in harm</td><td>Giving the wrong medication dose that a competent MA would have double-checked</td><td class="fa-cell">سهل‌انگاری: عدم ارائه استاندارد مراقبت معقول که منجر به آسیب می‌شود</td></tr>
+            <tr><td><strong>Malpractice</strong></td><td>Professional negligence — negligence by a licensed professional within their field</td><td>A physician fails to order a standard test that leads to missed diagnosis</td><td class="fa-cell">قصور پزشکی: سهل‌انگاری توسط متخصص مجاز در حوزه کاری خودش</td></tr>
+            <tr><td><strong>Battery</strong></td><td>Unauthorized touching — performing a procedure without consent</td><td>Drawing blood from an unconscious patient who previously refused (and no emergency exception applies)</td><td class="fa-cell">ضرب و شتم: لمس غیرمجاز — انجام روش بدون رضایت</td></tr>
+            <tr><td><strong>Assault</strong></td><td>Threatening to perform a procedure without consent (no actual touch needed)</td><td>Saying "If you don't cooperate, I'll hold you down and do it anyway"</td><td class="fa-cell">تهدید: تهدید به انجام روش بدون رضایت (تماس لازم نیست)</td></tr>
+            <tr><td><strong>Defamation</strong></td><td>Making false statements that damage a person's reputation</td><td>Telling coworkers "I think the patient is a drug addict" without evidence</td><td class="fa-cell">افترا: ادعاهای دروغ که به شهرت کسی آسیب می‌زند</td></tr>
+            <tr><td><strong>Libel</strong></td><td>Written defamation (false written statements)</td><td>Writing false information in a medical record</td><td class="fa-cell">افترای کتبی: ادعاهای دروغ کتبی</td></tr>
+            <tr><td><strong>Slander</strong></td><td>Verbal/spoken defamation</td><td>Verbally spreading false claims about a patient or coworker</td><td class="fa-cell">افترای شفاهی: ادعاهای دروغ گفتاری</td></tr>
+            <tr><td><strong>Respondeat Superior</strong></td><td>"Let the master answer" — employer is legally responsible for employee's actions within scope of work</td><td>If an MA makes a medical error, the practice/physician may also be held liable</td><td class="fa-cell">«بگذار استاد جواب دهد» — کارفرما مسئول اعمال کارمند است</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="divider"></div>
+      <h3>🌟 Four Ethical Principles (Bioethics)</h3>
+      <div class="g2" style="margin-top:12px;">
+        <div class="hl-blue"><strong>1. Autonomy · خودمختاری</strong><br>Patient's right to make their OWN informed decisions about their care. Even if you disagree. Even if you think it's wrong. Respect it.<br><span style="font-family:var(--font-farsi);font-size:0.85rem;direction:rtl;display:block;text-align:right;margin-top:4px;">حق بیمار برای تصمیم‌گیری خودش. حتی اگر موافق نباشید.</span></div>
+        <div class="hl-green"><strong>2. Beneficence · نیکوکاری</strong><br>Duty to do GOOD — act in the patient's best interest. Always ask: "Is what I'm doing helping this patient?"<br><span style="font-family:var(--font-farsi);font-size:0.85rem;direction:rtl;display:block;text-align:right;margin-top:4px;">وظیفه انجام خوبی — عمل در بهترین منافع بیمار.</span></div>
+        <div class="hl-gold"><strong>3. Non-maleficence · بی‌آزاری</strong><br>"First, do no harm" (Primum non nocere). Avoid causing harm — through action OR inaction.<br><span style="font-family:var(--font-farsi);font-size:0.85rem;direction:rtl;display:block;text-align:right;margin-top:4px;">«اول آسیب نرسان.» از ایجاد آسیب از طریق عمل یا غفلت پرهیز کنید.</span></div>
+        <div class="hl-purple"><strong>4. Justice · عدالت</strong><br>Fair and equal treatment of all patients. No discrimination. Resources distributed fairly. Treat all patients with the same quality of care regardless of race, religion, income, or any other factor.<br><span style="font-family:var(--font-farsi);font-size:0.85rem;direction:rtl;display:block;text-align:right;margin-top:4px;">درمان منصفانه و برابر همه بیماران. بدون تبعیض.</span></div>
+      </div>
+
+      <div class="mini-quiz" style="margin-top:20px;">
+        <div class="qtext">A patient refuses a blood transfusion for religious reasons, even though the physician says they may die without it. The BEST response of the healthcare team is:</div>
+        <div class="qfa">بیمار به دلایل مذهبی از تزریق خون امتناع می‌کند حتی اگر پزشک بگوید بدون آن ممکن است بمیرد. بهترین پاسخ تیم مراقبت چیست؟</div>
+        <div class="qopts" id="q_ethics1">
+          <button class="qopt" onclick="checkQ('q_ethics1',this,false,'Giving the transfusion against the patient\'s will is assault and battery — a crime — even in this life-threatening situation.')">A. Give the transfusion anyway — saving their life is more important</button>
+          <button class="qopt" onclick="checkQ('q_ethics1',this,false,'This approach is coercive and undermines patient autonomy.')">B. Keep trying to convince them until they agree</button>
+          <button class="qopt" onclick="checkQ('q_ethics1',this,true,'A competent adult patient has the absolute right (autonomy) to refuse treatment — even life-saving treatment — for any reason, including religious beliefs. The team must respect this, document the refusal, offer all available alternatives, and ensure the patient is fully informed of consequences.')">C. Respect the patient's decision, document the informed refusal, explore all alternatives, and continue providing all other care ✓</button>
+          <button class="qopt" onclick="checkQ('q_ethics1',this,false,'This removes patient autonomy. A competent patient\'s religious refusal is legally binding.')">D. Get a court order to override the refusal</button>
+        </div>
+        <div class="qfb" id="q_ethics1_fb"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DOCUMENTATION & LAW ── -->
+  <div id="legal_docLegal" class="sub-panel" style="display:none;">
+    <div class="card card-gold">
+      <h2>📋 Documentation as a Legal Document</h2>
+      <div class="fa-sub">مستندسازی به عنوان سند قانونی</div>
+      <div class="bi">
+        <div class="en-box">
+          <span class="lang-tag">English</span>
+          <p>The medical record is a <strong>legal document</strong>. It can be used in a court of law. It protects patients AND protects healthcare workers. What you document — and don't document — can determine the outcome of a lawsuit.</p>
+        </div>
+        <div class="fa-box">
+          <span class="lang-tag">فارسی</span>
+          <p>پرونده پزشکی یک <strong>سند قانونی</strong> است. می‌تواند در دادگاه استفاده شود. هم از بیماران و هم از کارگران بهداشتی محافظت می‌کند. آنچه مستند می‌کنید — و نمی‌کنید — می‌تواند نتیجه یک دعوای قضایی را تعیین کند.</p>
+        </div>
+      </div>
+
+      <ul class="steps" style="margin-top:16px;">
+        <li><div class="snum n">✅</div><div class="sbody"><div class="sen">If it is not documented, legally it was NOT done</div><div class="sfa">اگر ثبت نشده، از نظر قانونی انجام نشده</div><div class="sdesc">The law does not care that you "remember" doing it. Without documentation, there is no evidence it happened.</div></div></li>
+        <li><div class="snum n">✅</div><div class="sbody"><div class="sen">Never alter, backdate, or falsify records</div><div class="sfa">هرگز پرونده را تغییر ندهید، مهره‌زمانی جعلی نگذارید، یا تحریف نکنید</div><div class="sdesc">This is illegal and constitutes fraud. In paper charts: draw ONE line through the error, write "error," initial, and date. NEVER use white-out or scribble over the error.</div></div></li>
+        <li><div class="snum n">✅</div><div class="sbody"><div class="sen">Document late entries correctly</div><div class="sfa">ثبت‌های دیرهنگام را درست ثبت کنید</div><div class="sdesc">Write "Late Entry" + current date and time + the actual date/time of the event. Never backdate to make it appear timely.</div></div></li>
+        <li><div class="snum n">✅</div><div class="sbody"><div class="sen">Write only objective, factual observations</div><div class="sfa">فقط مشاهدات عینی و واقعی بنویسید</div><div class="sdesc">BAD: "Patient was drunk and uncooperative." GOOD: "Patient had slurred speech, unsteady gait, and refused to answer questions." Document what you SEE and HEAR — not what you think or assume.</div></div></li>
+        <li><div class="snum n">✅</div><div class="sbody"><div class="sen">Sign every entry with your name, credentials, date, and time</div><div class="sfa">هر ثبت را با نام، مدارک، تاریخ و زمان امضا کنید</div></div></li>
+        <li><div class="snum n">✅</div><div class="sbody"><div class="sen">Document patient refusals explicitly</div><div class="sfa">امتناع بیمار را صریحاً مستند کنید</div><div class="sdesc">If a patient refuses a medication, treatment, or procedure: document exactly what was refused, what education was provided, the patient's stated reason (in quotes), and that they understood the risks of refusal. Have them sign an AMA (Against Medical Advice) form.</div></div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- patient rights — brief -->
+  <div id="legal_rights" class="sub-panel" style="display:none;">
+    <div class="card card-teal">
+      <h2>👤 Patient Rights — The Patient's Bill of Rights</h2>
+      <div class="fa-sub">حقوق بیمار — اعلامیه حقوق بیمار</div>
+      <div class="bi">
+        <div class="en-box"><span class="lang-tag">English</span><p>Patients have legally protected rights in healthcare. As an MA, you are responsible for upholding ALL of these rights in every interaction.</p></div>
+        <div class="fa-box"><span class="lang-tag">فارسی</span><p>بیماران دارای حقوق قانوناً محافظت‌شده در مراقبت‌های بهداشتی هستند. به عنوان MA، شما مسئول رعایت همه این حقوق در هر تعامل هستید.</p></div>
+      </div>
+      <ul class="steps" style="margin-top:14px;">
+        <li><div class="snum t">1</div><div class="sbody"><div class="sen">Right to informed consent and the right to refuse treatment</div><div class="sfa">حق رضایت آگاهانه و حق امتناع از درمان</div></div></li>
+        <li><div class="snum t">2</div><div class="sbody"><div class="sen">Right to confidentiality and privacy (HIPAA)</div><div class="sfa">حق محرمانگی و حریم خصوصی</div></div></li>
+        <li><div class="snum t">3</div><div class="sbody"><div class="sen">Right to access their own medical records</div><div class="sfa">حق دسترسی به پرونده پزشکی خودشان</div></div></li>
+        <li><div class="snum t">4</div><div class="sbody"><div class="sen">Right to be treated with dignity and respect regardless of race, religion, gender, sexual orientation, or disability</div><div class="sfa">حق درمان با کرامت و احترام بدون توجه به نژاد، مذهب، جنسیت</div></div></li>
+        <li><div class="snum t">5</div><div class="sbody"><div class="sen">Right to a language interpreter (if English is not primary language)</div><div class="sfa">حق مترجم زبان</div></div></li>
+        <li><div class="snum t">6</div><div class="sbody"><div class="sen">Right to know the names and roles of their healthcare team</div><div class="sfa">حق دانستن نام و نقش اعضای تیم مراقبتی</div></div></li>
+        <li><div class="snum t">7</div><div class="sbody"><div class="sen">Right to file a complaint without fear of retaliation</div><div class="sfa">حق شکایت بدون ترس از انتقام</div></div></li>
+        <li><div class="snum t">8</div><div class="sbody"><div class="sen">Right to an advance directive (living will / DNR)</div><div class="sfa">حق دستورالعمل پیشرفته (وصیت زنده / DNR)</div></div></li>
+      </ul>
+      <div class="tip-box" style="margin-top:14px;">
+        <div class="tip-icon">📜</div>
+        <div class="tip-body">
+          <div class="tip-title">DNR — Do Not Resuscitate</div>
+          <div class="tip-text">A DNR is a legal order that means the patient does NOT want CPR or other resuscitation if their heart stops. It MUST be documented and honored. A healthcare worker who performs CPR on a patient with a valid DNR has violated that patient's rights — even though the intent was to save them. Autonomy applies even in death.</div>
+          <div class="tip-fa">DNR دستور قانونی است که بیمار نمی‌خواهد CPR دریافت کند. باید مستند و رعایت شود. انجام CPR روی بیمار با DNR معتبر نقض حقوق بیمار است — حتی اگر قصد کمک داشتید.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================================================================
+     SECTION C: ADMINISTRATIVE SKILLS
+================================================================ -->
+<section id="admin" class="section-panel">
+  <div class="seg-hero green-hero">
+    <span class="hero-icon">📋</span>
+    <div class="hero-title">Administrative Skills — Full Detail</div>
+    <div class="hero-fa">مهارت‌های اداری — جزئیات کامل</div>
+    <p class="hero-desc">Scheduling, EMR, insurance, coding, referrals, and intake — everything you need for the admin half of the CCMA exam.</p>
+  </div>
+
+  <div class="mini-nav">
+    <button class="mnav gl active" onclick="showSub('admin','scheduling',this)">📅 Scheduling</button>
+    <button class="mnav gl" onclick="showSub('admin','emr',this)">💻 EMR/EHR</button>
+    <button class="mnav gl" onclick="showSub('admin','insurance',this)">🏥 Insurance Basics</button>
+    <button class="mnav gl" onclick="showSub('admin','coding',this)">🔢 Coding (CPT/ICD)</button>
+    <button class="mnav gl" onclick="showSub('admin','referrals',this)">📨 Referrals</button>
+    <button class="mnav gl" onclick="showSub('admin','intake',this)">🚪 Patient Intake</button>
+  </div>
+
+  <!-- ── SCHEDULING ── -->
+  <div id="admin_scheduling" class="sub-panel">
+    <div class="card card-green">
+      <h2>📅 Appointment Scheduling — Full Detail</h2>
+      <div class="fa-sub">برنامه‌ریزی قرار ملاقات — جزئیات کامل</div>
+      <div class="bi">
+        <div class="en-box"><span class="lang-tag">English</span><p>Scheduling is about matching patient needs with available provider time efficiently and safely. Errors in scheduling delay care, waste resources, and can harm patients.</p></div>
+        <div class="fa-box"><span class="lang-tag">فارسی</span><p>برنامه‌ریزی یعنی تطبیق نیازهای بیمار با زمان در دسترس پزشک به طور کارآمد و ایمن. خطاهای برنامه‌ریزی مراقبت را به تأخیر می‌اندازد.</p></div>
+      </div>
+
+      <div style="overflow-x:auto;margin-top:14px;">
+        <table class="data-table">
+          <thead><tr class="th-green"><th>Scheduling Method · روش</th><th>How It Works</th><th>Pros / Cons</th><th>فارسی</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Stream / Fixed-Interval</strong></td><td>Appointments at fixed intervals (e.g., every 15 min). Each patient gets a specific time slot.</td><td>✅ Predictable. ❌ No flexibility for complex visits. Long waits if one patient is slow.</td><td class="fa-cell">قرارها در فواصل ثابت. ساده اما انعطاف‌پذیری کم.</td></tr>
+            <tr><td><strong>Wave Scheduling</strong></td><td>Multiple patients booked at the start of each hour. First-come, first-served within that hour.</td><td>✅ Fills gaps automatically. ❌ Can cause waits if all patients show early.</td><td class="fa-cell">چند بیمار در ابتدای هر ساعت. اول بیاید، اول خدمت بگیرد.</td></tr>
+            <tr><td><strong>Modified Wave (2+2+2)</strong></td><td>Two patients at :00, one at :20, one at :40. Allows for variation in visit length.</td><td>✅ More flexible than fixed. ✅ Reduces waiting. Most common in outpatient clinics.</td><td class="fa-cell">رایج‌ترین در کلینیک‌های سرپایی. انعطاف بیشتر.</td></tr>
+            <tr><td><strong>Open Access / Same-Day</strong></td><td>No advance appointments. Patients call/walk in and seen same day.</td><td>✅ Great for acute needs. ❌ Harder to predict staffing. ❌ Can be chaotic.</td><td class="fa-cell">دسترسی باز: همان روز. برای نیازهای فوری خوب است.</td></tr>
+            <tr><td><strong>Clustering / Categorizing</strong></td><td>Group similar appointment types together (e.g., all well-child visits on Tuesdays)</td><td>✅ Efficient use of equipment. ✅ Provider in "rhythm." ❌ Less flexible for patients.</td><td class="fa-cell">گروه‌بندی قرارهای مشابه. استفاده کارآمد از تجهیزات.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="divider"></div>
+      <h3>⚡ Priority Level for Scheduling</h3>
+      <p style="margin-bottom:12px;">Not all appointments are equal. You must recognize urgency level and schedule accordingly:</p>
+      <ul class="steps">
+        <li><div class="snum" style="background:#cc2020;color:#fff;">🚨</div><div class="sbody"><div class="sen">Emergency / Life-threatening → CALL 911 or send to ER immediately</div><div class="sfa">اورژانس: ۹۱۱ بزنید یا فوری به اورژانس بفرستید</div><div class="sdesc">Chest pain with radiation, stroke symptoms (FAST: Face drooping, Arm weakness, Speech difficulty, Time to call 911), difficulty breathing, profuse bleeding, anaphylaxis.</div></div></li>
+        <li><div class="snum" style="background:#cc5500;color:#fff;">⚠️</div><div class="sbody"><div class="sen">Urgent → Same day or within 24 hours</div><div class="sfa">فوری: همان روز یا ظرف ۲۴ ساعت</div><div class="sdesc">High fever, severe pain, suspected fracture (non-displaced), acute UTI with systemic symptoms, severe migraine.</div></div></li>
+        <li><div class="snum g">📅</div><div class="sbody"><div class="sen">Semi-urgent → Within 1–3 days</div><div class="sfa">نیمه‌فوری: ظرف ۱-۳ روز</div><div class="sdesc">Moderate illness, worsening chronic condition, medication side effects that need evaluation.</div></div></li>
+        <li><div class="snum b">📆</div><div class="sbody"><div class="sen">Routine → Within 1–4 weeks</div><div class="sfa">روتین: ظرف ۱-۴ هفته</div><div class="sdesc">Annual physical, follow-up for stable chronic conditions, preventive care, medication refills without acute issues.</div></div></li>
+      </ul>
+
+      <div class="trap-box">
+        <div class="trap-text">
+          <strong>TRAP — "Just schedule them next week":</strong> The exam will describe a patient calling with symptoms that require same-day or urgent care, and then ask what you should do. The wrong answer is to schedule them for next week. Always triage FIRST — assess the urgency of what the patient is describing before deciding when to schedule. If there is ANY possibility of an emergency, escalate immediately to the provider.</div>
+        <div class="trap-fa">تله: همیشه ابتدا شدت علائم را ارزیابی کنید. هرگز بدون سنجش اورژانسی بودن، بیمار را برای هفته بعد برنامه‌ریزی نکنید.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── EMR ── -->
+  <div id="admin_emr" class="sub-panel" style="display:none;">
+    <div class="card card-blue">
+      <h2>💻 EMR / EHR — Electronic Medical Records</h2>
+      <div class="fa-sub">پرونده‌های پزشکی الکترونیک</div>
+      <div class="bi">
+        <div class="en-box"><span class="lang-tag">English</span><p><strong>EMR (Electronic Medical Record)</strong> = a digital version of the paper chart for ONE provider's practice. <strong>EHR (Electronic Health Record)</strong> = a broader digital record that can be shared across multiple providers and settings. The terms are often used interchangeably.</p></div>
+        <div class="fa-box"><span class="lang-tag">فارسی</span><p><strong>EMR</strong> = نسخه دیجیتال پرونده کاغذی برای یک مطب. <strong>EHR</strong> = پرونده دیجیتال گسترده‌تر که می‌تواند بین چندین پزشک و مرکز به اشتراک گذاشته شود.</p></div>
+      </div>
+
+      <div class="hl-blue" style="margin:16px 0;">
+        <strong>MA Responsibilities in EMR:</strong><br>
+        Enter vital signs, chief complaint, medication list, allergy updates, reason for visit, and relevant history. NEVER enter information for another provider or falsify entries. Log out whenever you leave the workstation — leaving a session open is a HIPAA violation.
+        <div style="font-family:var(--font-farsi);direction:rtl;font-size:0.87rem;margin-top:6px;">وظایف MA: ورود علائم حیاتی، شکایت اصلی، داروها، آلرژی‌ها، علت ویزیت. هرگز اطلاعات را برای دیگران وارد نکنید. موقع ترک ایستگاه خروج کنید — باز گذاشتن session نقض HIPAA است.</div>
+      </div>
+
+      <div style="overflow-x:auto;">
+        <table class="data-table">
+          <thead><tr class="th-blue"><th>EMR Advantage</th><th>Explanation</th><th>فارسی</th></tr></thead>
+          <tbody>
+            <tr><td>Legibility</td><td>No handwriting errors — everyone can read it</td><td class="fa-cell">خوانایی: بدون خطای دستخط</td></tr>
+            <tr><td>Accessibility</td><td>Multiple providers can view simultaneously</td><td class="fa-cell">دسترسی: چند پزشک همزمان می‌توانند ببینند</td></tr>
+            <tr><td>Alerts</td><td>Drug interaction warnings, allergy alerts</td><td class="fa-cell">هشدارها: تداخل دارویی، آلرژی</td></tr>
+            <tr><td>Audit trail</td><td>Every access and change is logged with date/time/user — cannot be altered without a record</td><td class="fa-cell">ردپای بازرسی: همه دسترسی‌ها ثبت می‌شوند</td></tr>
+            <tr><td>Coding assistance</td><td>Helps ensure correct billing codes are selected</td><td class="fa-cell">کمک به کدگذاری و صورتحساب</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── INSURANCE ── -->
+  <div id="admin_insurance" class="sub-panel" style="display:none;">
+    <div class="card card-purple">
+      <h2>🏥 Insurance Basics — What You Must Know</h2>
+      <div class="fa-sub">اصول بیمه — آنچه باید بدانید</div>
+
+      <div style="overflow-x:auto;">
+        <table class="data-table">
+          <thead><tr class="th-purple"><th>Term · اصطلاح</th><th>Definition · تعریف</th><th>فارسی</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Premium</strong></td><td>The monthly payment to keep insurance active (paid whether or not you use services)</td><td class="fa-cell">حق بیمه: پرداخت ماهانه برای داشتن بیمه</td></tr>
+            <tr><td><strong>Deductible</strong></td><td>Amount patient pays OUT OF POCKET before insurance starts paying (resets annually)</td><td class="fa-cell">کسر قابل کسر: مقداری که بیمار قبل از شروع پوشش بیمه می‌پردازد</td></tr>
+            <tr><td><strong>Copay</strong></td><td>Fixed amount paid each visit (e.g., $30 per visit) regardless of total cost</td><td class="fa-cell">کوپی: مبلغ ثابت در هر ویزیت</td></tr>
+            <tr><td><strong>Coinsurance</strong></td><td>Percentage of cost patient pays AFTER deductible is met (e.g., 20% — insurance pays 80%)</td><td class="fa-cell">بیمه مشترک: درصد هزینه‌ای که بیمار بعد از کسر کسر می‌پردازد</td></tr>
+            <tr><td><strong>Out-of-pocket maximum</strong></td><td>The maximum a patient pays in a year — after this, insurance pays 100%</td><td class="fa-cell">حداکثر پرداخت خارج از جیب: بعد از این مقدار بیمه ۱۰۰٪ می‌پردازد</td></tr>
+            <tr><td><strong>Prior Authorization (PA)</strong></td><td>Insurance company's advance approval required for certain procedures, referrals, or medications before they are performed/prescribed</td><td class="fa-cell">مجوز قبلی: تأیید شرکت بیمه قبل از انجام روش یا تجویز دارو</td></tr>
+            <tr><td><strong>Formulary</strong></td><td>List of medications covered by the insurance plan. Drugs not on the formulary may not be covered or cost more.</td><td class="fa-cell">فهرست داروهای تحت پوشش بیمه</td></tr>
+            <tr><td><strong>Medicare</strong></td><td>Federal health insurance for people 65+ and certain disabled individuals</td><td class="fa-cell">مدیکر: بیمه فدرال برای افراد ۶۵ سال و بالاتر و معلولان</td></tr>
+            <tr><td><strong>Medicaid</strong></td><td>Joint federal/state insurance for low-income individuals and families</td><td class="fa-cell">مدیکید: بیمه مشترک فدرال/ایالتی برای کم‌درآمدها</td></tr>
+            <tr><td><strong>HMO</strong></td><td>Health Maintenance Organization: requires PCP (primary care provider) and referrals for specialists. Network-restricted.</td><td class="fa-cell">HMO: نیاز به پزشک خانواده و ارجاع برای متخصص. شبکه محدود.</td></tr>
+            <tr><td><strong>PPO</strong></td><td>Preferred Provider Organization: more flexibility, can see specialists without referral, but in-network is cheaper.</td><td class="fa-cell">PPO: انعطاف بیشتر، بدون ارجاع می‌توان به متخصص رفت.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CODING ── -->
+  <div id="admin_coding" class="sub-panel" style="display:none;">
+    <div class="card card-gold">
+      <h2>🔢 Medical Coding — CPT and ICD Codes</h2>
+      <div class="fa-sub">کدگذاری پزشکی — کدهای CPT و ICD</div>
+      <div class="bi">
+        <div class="en-box"><span class="lang-tag">English</span><p>Medical coding converts diagnoses and procedures into universal numeric/alphanumeric codes used for insurance billing. Errors in coding = claim denials, underpayment, or fraud accusations.</p></div>
+        <div class="fa-box"><span class="lang-tag">فارسی</span><p>کدگذاری پزشکی تشخیص‌ها و روش‌ها را به کدهای عددی جهانی برای صورتحساب بیمه تبدیل می‌کند. خطاهای کدگذاری = رد ادعا، پرداخت کمتر، یا اتهام تقلب.</p></div>
+      </div>
+
+      <div class="g2" style="margin-top:16px;">
+        <div class="hl-blue">
+          <h3>📗 ICD Codes (ICD-10-CM)</h3>
+          <p style="font-size:0.9rem;margin-top:8px;"><strong>ICD = International Classification of Diseases</strong></p>
+          <p style="font-size:0.9rem;">Used to code the patient's <strong>DIAGNOSIS</strong> (what is wrong with the patient).</p>
+          <p style="font-size:0.9rem;">Example: J06.9 = Acute upper respiratory infection (common cold)</p>
+          <p style="font-size:0.9rem;">Format: Letter + 2 numbers + decimal + more specificity (up to 7 characters)</p>
+          <div style="font-family:var(--font-farsi);direction:rtl;font-size:0.85rem;margin-top:8px;border-top:1px solid var(--blue);padding-top:6px;">برای کدگذاری <strong>تشخیص</strong> استفاده می‌شود. مثال: J06.9 = عفونت حاد دستگاه تنفسی فوقانی.</div>
+        </div>
+        <div class="hl-green">
+          <h3>📘 CPT Codes</h3>
+          <p style="font-size:0.9rem;margin-top:8px;"><strong>CPT = Current Procedural Terminology</strong></p>
+          <p style="font-size:0.9rem;">Used to code the <strong>PROCEDURE or SERVICE</strong> performed.</p>
+          <p style="font-size:0.9rem;">Example: 99213 = Office visit, established patient, moderate complexity</p>
+          <p style="font-size:0.9rem;">Format: 5-digit number</p>
+          <div style="font-family:var(--font-farsi);direction:rtl;font-size:0.85rem;margin-top:8px;border-top:1px solid var(--green);padding-top:6px;">برای کدگذاری <strong>روش یا خدمت</strong> انجام‌شده استفاده می‌شود. مثال: 99213 = ویزیت بیمار آشنا، پیچیدگی متوسط.</div>
+        </div>
+      </div>
+
+      <div class="tip-box" style="margin-top:14px;">
+        <div class="tip-icon">⚠️</div>
+        <div class="tip-body">
+          <div class="tip-title">Upcoding vs Downcoding — Fraud</div>
+          <div class="tip-text"><strong>Upcoding:</strong> Billing for a higher-level service than was actually provided (e.g., billing a complex visit when it was routine). This is FRAUD — illegal.<br><strong>Downcoding:</strong> Billing for a lower-level service (often to avoid audit). Also problematic — loss of revenue and inaccurate records.<br>Always code for exactly what was documented and provided — no more, no less.</div>
+          <div class="tip-fa">Upcoding: کد بالاتر از خدمت واقعی = تقلب. Downcoding: کد پایین‌تر = از دست دادن درآمد. همیشه دقیقاً آنچه انجام شده کد کنید.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── REFERRALS ── -->
+  <div id="admin_referrals" class="sub-panel" style="display:none;">
+    <div class="card card-teal">
+      <h2>📨 Referrals and Prior Authorization</h2>
+      <div class="fa-sub">ارجاعات و مجوز قبلی</div>
+      <ul class="steps">
+        <li><div class="snum t">1</div><div class="sbody"><div class="sen">Provider orders the referral → MA prepares referral paperwork</div><div class="sfa">پزشک دستور ارجاع می‌دهد → MA مدارک ارجاع را آماده می‌کند</div></div></li>
+        <li><div class="snum t">2</div><div class="sbody"><div class="sen">Check if prior authorization (PA) is required by insurance</div><div class="sfa">بررسی کنید آیا بیمه نیاز به مجوز قبلی دارد</div><div class="sdesc">HMO plans almost always require a referral AND prior auth. PPO plans may not require a referral but may still need PA for procedures.</div></div></li>
+        <li><div class="snum t">3</div><div class="sbody"><div class="sen">Submit PA request to insurance: include diagnosis code, procedure code, clinical notes, lab results</div><div class="sfa">درخواست PA به بیمه ارسال کنید با کد تشخیص، کد روش، یادداشت‌های بالینی</div></div></li>
+        <li><div class="snum t">4</div><div class="sbody"><div class="sen">Wait for approval — document the authorization number</div><div class="sfa">منتظر تأیید بمانید — شماره مجوز را ثبت کنید</div></div></li>
+        <li><div class="snum t">5</div><div class="sbody"><div class="sen">Schedule appointment with specialist after approval</div><div class="sfa">بعد از تأیید با متخصص قرار ملاقات بگذارید</div></div></li>
+        <li><div class="snum t">6</div><div class="sbody"><div class="sen">Send relevant records to specialist before the visit</div><div class="sfa">قبل از ویزیت پرونده‌های مربوطه را به متخصص بفرستید</div></div></li>
+      </ul>
+      <div class="trap-box">
+        <div class="trap-text"><strong>TRAP:</strong> The MA can prepare and submit paperwork for prior authorization, but only the PROVIDER can make clinical decisions about what care the patient needs. If the insurance denies the PA, the provider must decide the next steps — not the MA.</div>
+        <div class="trap-fa">تله: MA می‌تواند مدارک PA را آماده کند، اما فقط پزشک تصمیمات بالینی می‌گیرد. اگر بیمه رد کند، پزشک مرحله بعدی را تصمیم می‌گیرد.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── INTAKE ── -->
+  <div id="admin_intake" class="sub-panel" style="display:none;">
+    <div class="card card-rose">
+      <h2>🚪 Patient Intake — Front Desk to Exam Room</h2>
+      <div class="fa-sub">پذیرش بیمار — از میز پذیرش تا اتاق معاینه</div>
+      <ul class="steps">
+        <li><div class="snum r">1</div><div class="sbody"><div class="sen">Greet patient professionally and warmly</div><div class="sfa">با گرمی و حرفه‌ای از بیمار استقبال کنید</div><div class="sdesc">"Good morning, welcome to [Clinic Name]. Can I get your name?" — Make eye contact, smile, speak clearly.</div></div></li>
+        <li><div class="snum r">2</div><div class="sbody"><div class="sen">Verify patient identity — 2 identifiers</div><div class="sfa">هویت بیمار را با ۲ شناسه تأیید کنید</div><div class="sdesc">Name + date of birth (most common). Never rely on face recognition alone.</div></div></li>
+        <li><div class="snum r">3</div><div class="sbody"><div class="sen">Collect/verify insurance information</div><div class="sfa">اطلاعات بیمه را جمع‌آوری/تأیید کنید</div><div class="sdesc">Copy front and back of insurance card. Verify coverage is active. Check copay amount.</div></div></li>
+        <li><div class="snum r">4</div><div class="sbody"><div class="sen">Collect copay at time of service</div><div class="sfa">کوپی را در زمان سرویس جمع‌آوری کنید</div></div></li>
+        <li><div class="snum r">5</div><div class="sbody"><div class="sen">New patient: complete all required forms (demographics, medical history, HIPAA notice, consents)</div><div class="sfa">بیمار جدید: همه فرم‌های لازم را تکمیل کنید</div><div class="sdesc">HIPAA Notice of Privacy Practices must be given and acknowledged. Patient signs that they received it (does not mean they agreed — just received).</div></div></li>
+        <li><div class="snum r">6</div><div class="sbody"><div class="sen">Update existing patient information — address, phone, insurance, emergency contact, pharmacy</div><div class="sfa">اطلاعات بیمار موجود را به‌روزرسانی کنید</div></div></li>
+        <li><div class="snum r">7</div><div class="sbody"><div class="sen">Enter information into EMR / schedule in system</div><div class="sfa">اطلاعات را در سیستم EMR وارد کنید</div></div></li>
+        <li><div class="snum r">8</div><div class="sbody"><div class="sen">Notify clinical staff patient has arrived and is ready to be roomed</div><div class="sfa">به کارکنان بالینی اطلاع دهید بیمار رسیده و آماده است</div></div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="btn-group" style="margin-top:8px;">
+    <button class="btn btn-navy btn-sm" onclick="gotoSeg(5)">▶ Segment 5: Safety, Infection Control & Anatomy →</button>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <p><strong>CCMA Bilingual Success Lab</strong> — Segment 4: Sterilization · Legal & Ethics · Administrative</p>
+  <p class="footer-fa">استریل‌سازی | حقوق و اخلاق | مهارت‌های اداری</p>
+  <p style="margin-top:10px;">Curriculum Designer &amp; Developer: <strong>Hilary Homaii</strong></p>
+</footer>
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ── SECTION SWITCH ──
+function switchSection(id,btn){
+  document.querySelectorAll('.section-panel').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.top-nav button').forEach(b=>b.classList.remove('active'));
+  const p=document.getElementById(id);if(p)p.classList.add('active');
+  if(btn)btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── SUB PANEL SWITCH ──
+function showSub(section,id,btn){
+  const sec=document.getElementById(section);
+  sec.querySelectorAll('.sub-panel').forEach(s=>s.style.display='none');
+  sec.querySelectorAll('.mini-nav .mnav').forEach(b=>b.classList.remove('active'));
+  const p=document.getElementById(section+'_'+id);if(p)p.style.display='block';
+  if(btn)btn.classList.add('active');
+}
+
+// ── ACCORDION ──
+function toggleAcc(btn){
+  const body=btn.nextElementSibling;
+  const isOpen=body.classList.contains('open');
+  const acc=btn.closest('.accordion');
+  if(acc){acc.querySelectorAll('.acc-body').forEach(b=>b.classList.remove('open'));acc.querySelectorAll('.acc-btn').forEach(b=>b.classList.remove('open'));}
+  if(!isOpen){body.classList.add('open');btn.classList.add('open');}
+}
+
+// ── REVEAL ──
+function toggleReveal(btn){
+  const box=btn.nextElementSibling;
+  const isOpen=box.classList.contains('open');
+  box.classList.toggle('open',!isOpen);
+  btn.textContent=isOpen?'🔍 See Answer':'🔼 Hide Answer';
+}
+
+// ── QUIZ ──
+function checkQ(groupId,btn,isCorrect,explanation){
+  const group=document.getElementById(groupId);
+  const fb=document.getElementById(groupId+'_fb');
+  group.querySelectorAll('.qopt').forEach(b=>{b.disabled=true;b.style.cursor='default';});
+  if(isCorrect){
+    btn.classList.add('correct');
+    fb.className='qfb show fb-correct';
+    fb.innerHTML='✅ <strong>Correct! / درست!</strong><br>'+explanation+'<span class="fb-fa">آفرین! این جواب درست است.</span>';
+  } else {
+    btn.classList.add('wrong');
+    // highlight correct
+    group.querySelectorAll('.qopt').forEach(b=>{if(b.textContent.includes('✓'))b.classList.add('correct');});
+    fb.className='qfb show fb-wrong';
+    fb.innerHTML='❌ <strong>Not quite. / نه کاملاً.</strong><br>'+explanation+'<span class="fb-fa">جواب درست را علامت‌گذاری کردیم. توضیح را بخوانید.</span>';
+  }
+}
+
+// ── NAV ──
+function gotoSeg(n){alert('Please open the Segment '+n+' HTML file.\nلطفاً فایل بخش '+n+' را باز کنید.');}
+
+// ── SCROLL TOP ──
+window.addEventListener('scroll',()=>{document.getElementById('scrollTop').classList.toggle('vis',window.scrollY>300);});
+</script>
+</body>
+</html>
